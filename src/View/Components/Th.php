@@ -98,7 +98,8 @@ class Th extends Component
     {
         $query = request()->query();
 
-        return sprintf('%s?%s',
+        return sprintf(
+            '%s?%s',
             url()->current(),
             Arr::query(
                 array_merge($query, ['sort' => $this->sort])
