@@ -127,6 +127,6 @@ class Th extends Component
      */
     public function render()
     {
-        return "components.$this->theme.th";
+        return "table::components.$this->theme.th";
     }
 }

@@ -11,6 +11,6 @@ class DateRange extends Field
      */
     public function render()
     {
-        return "components.$this->theme.filters.date-range";
+        return "table::components.$this->theme.filters.date-range";
     }
 }

@@ -32,6 +32,6 @@ class Checkbox extends Field
      */
     public function render()
     {
-        return "components.$this->theme.filters.checkbox";
+        return "table::components.$this->theme.filters.checkbox";
     }
 }

@@ -30,6 +30,6 @@ class Columns extends Component
      */
     public function render()
     {
-        return "components.$this->theme.columns";
+        return "table::components.$this->theme.columns";
     }
 }

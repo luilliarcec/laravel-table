@@ -11,6 +11,6 @@ class Scripts extends Component
      */
     public function render()
     {
-        return "components.$this->theme.scripts";
+        return "table::components.$this->theme.scripts";
     }
 }

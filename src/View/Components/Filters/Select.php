@@ -22,6 +22,6 @@ class Select extends Field
      */
     public function render()
     {
-        return "components.$this->theme.filters.select";
+        return "table::components.$this->theme.filters.select";
     }
 }

@@ -11,6 +11,6 @@ class TableWrapper extends Component
      */
     public function render()
     {
-        return view("components.{$this->theme}.table-wrapper");
+        return "table::components.$this->theme.table-wrapper";
     }
 }

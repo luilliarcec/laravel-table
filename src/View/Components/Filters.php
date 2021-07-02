@@ -30,6 +30,6 @@ class Filters extends Component
      */
     public function render()
     {
-        return "components.$this->theme.filters";
+        return "table::components.$this->theme.filters";
     }
 }

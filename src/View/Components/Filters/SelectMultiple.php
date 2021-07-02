@@ -32,6 +32,6 @@ class SelectMultiple extends Field
      */
     public function render()
     {
-        return "components.$this->theme.filters.select-multiple";
+        return "table::components.$this->theme.filters.select-multiple";
     }
 }

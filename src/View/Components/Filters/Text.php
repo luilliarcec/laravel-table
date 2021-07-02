@@ -11,6 +11,6 @@ class Text extends Field
      */
     public function render()
     {
-        return "components.$this->theme.filters.text";
+        return "table::components.$this->theme.filters.text";
     }
 }

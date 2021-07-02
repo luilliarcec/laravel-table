@@ -11,6 +11,6 @@ class GlobalSearch extends Component
      */
     public function render()
     {
-        return "components.$this->theme.global-search";
+        return "table::components.$this->theme.global-search";
     }
 }

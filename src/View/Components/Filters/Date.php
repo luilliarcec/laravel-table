@@ -11,6 +11,6 @@ class Date extends Field
      */
     public function render()
     {
-        return "components.$this->theme.filters.date";
+        return "table::components.$this->theme.filters.date";
     }
 }

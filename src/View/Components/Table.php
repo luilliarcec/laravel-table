@@ -71,6 +71,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view("components.{$this->theme}.table");
+        return "table::components.$this->theme.table";
     }
 }

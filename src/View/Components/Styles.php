@@ -13,6 +13,6 @@ class Styles extends Component
      */
     public function render()
     {
-        return "components.$this->theme.styles";
+        return "table::components.$this->theme.styles";
     }
 }

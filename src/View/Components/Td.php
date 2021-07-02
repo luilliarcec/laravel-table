@@ -53,6 +53,6 @@ class Td extends Component
      */
     public function render()
     {
-        return "components.$this->theme.td";
+        return "table::components.$this->theme.td";
     }
 }
