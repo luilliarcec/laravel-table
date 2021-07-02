@@ -1,6 +1,6 @@
 <?php
 
-namespace Luilliarcec\LaravelUsernameGenerator\Facades;
+namespace Luilliarcec\LaravelTable\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Luilliarcec\LaravelTable\Support\BladeTable;
