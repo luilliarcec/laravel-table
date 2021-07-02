@@ -1,0 +1,56 @@
+{
+    "name": "luilliarcec/laravel-table",
+    "description": "Dynamic component for tables in Laravel Blade.",
+    "keywords": [
+        "tables",
+        "laravel",
+        "blade",
+        "components"
+    ],
+    "homepage": "https://github.com/luilliarcec/laravel-table",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Luis Andrés Arce C.",
+            "email": "luilliarcec@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0",
+        "laravel/framework": "^7.0|^8.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "orchestra/testbench": "^4.0|^5.0|^6.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Luilliarcec\\LaravelTable\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Luilliarcec\\LaravelTable\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Luilliarcec\\LaravelTable\\LaravelTableServiceProvider"
+            ],
+            "aliases": {
+                "Table": "Luilliarcec\\LaravelTable\\Facades\\Table"
+            }
+        }
+    }
+}
