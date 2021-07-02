@@ -6,7 +6,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
         >
-            <x-icons.colums/>
+            <x-table::icons.colums/>
         </button>
 
         <ul class="dropdown-menu shadow py-0 mt-3" style="min-width: 220px">

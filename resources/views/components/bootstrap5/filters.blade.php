@@ -6,7 +6,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
         >
-            <x-icons.filters/>
+            <x-table::icons.filters/>
         </button>
 
         <ul class="dropdown-menu shadow py-0 mt-3" style="min-width: 280px">
@@ -18,18 +18,18 @@
                         </p>
 
                         <div class="p-2">
-                            @if($filter->type === \App\Support\Filter::SELECT)
-                                <x-filters.select :filter="$filter"/>
-                            @elseif($filter->type === \App\Support\Filter::TEXT)
-                                <x-filters.text :filter="$filter"/>
-                            @elseif($filter->type === \App\Support\Filter::DATE)
-                                <x-filters.date :filter="$filter"/>
-                            @elseif($filter->type === \App\Support\Filter::DATE_RANGE)
-                                <x-filters.date-range :filter="$filter"/>
-                            @elseif($filter->type === \App\Support\Filter::CHECKBOX)
-                                <x-filters.checkbox :filter="$filter"/>
-                            @elseif($filter->type === \App\Support\Filter::SELECT_MULTIPLE)
-                                <x-filters.select-multiple :filter="$filter"/>
+                            @if($filter->type === \Luilliarcec\LaravelTable\Support\Filter::SELECT)
+                                <x-table::filters.select :filter="$filter"/>
+                            @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::TEXT)
+                                <x-table::filters.text :filter="$filter"/>
+                            @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::DATE)
+                                <x-table::filters.date :filter="$filter"/>
+                            @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::DATE_RANGE)
+                                <x-table::filters.date-range :filter="$filter"/>
+                            @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::CHECKBOX)
+                                <x-table::filters.checkbox :filter="$filter"/>
+                            @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::SELECT_MULTIPLE)
+                                <x-table::filters.select-multiple :filter="$filter"/>
                             @endif
                         </div>
                     </div>

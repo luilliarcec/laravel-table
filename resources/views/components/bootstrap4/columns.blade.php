@@ -7,7 +7,7 @@
             aria-haspopup="true"
             aria-expanded="false"
         >
-            <x-icons.colums/>
+            <x-table::icons.colums/>
         </button>
 
         <ul class="dropdown-menu keep-open shadow py-0 mt-3" style="min-width: 220px">
