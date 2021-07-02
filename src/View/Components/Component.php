@@ -11,7 +11,7 @@ abstract class Component extends \Illuminate\View\Component
      */
     public function __construct()
     {
-        $this->theme = (string)config('blade-table.theme');
+        $this->theme = (string)config('table.theme');
     }
 
     /**

@@ -12,7 +12,11 @@ class LaravelTableServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/config.php' => config_path('table.php'),
+            ], 'config');
+        }
     }
 
     /**
@@ -23,5 +27,7 @@ class LaravelTableServiceProvider extends ServiceProvider
         $this->app->singleton('Table', function () {
             return new BladeTable;
         });
+
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'table');
     }
 }
