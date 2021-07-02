@@ -2,6 +2,7 @@
 
 namespace Luilliarcec\LaravelTable;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Luilliarcec\LaravelTable\Support\BladeTable;
 
@@ -24,7 +25,10 @@ class LaravelTableServiceProvider extends ServiceProvider
             ], 'views');
         }
 
-        $this->app['blade.compiler']->components($this->components());
+        Blade::componentNamespace(
+            'Luilliarcec\\LaravelTable\\Views\\Components',
+            'datatable'
+        );
     }
 
     /**
