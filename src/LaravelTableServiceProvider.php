@@ -26,8 +26,8 @@ class LaravelTableServiceProvider extends ServiceProvider
         }
 
         Blade::componentNamespace(
-            'Luilliarcec\\LaravelTable\\Views\\Components',
-            'datatable'
+            'Luilliarcec\\LaravelTable\\View\\Components',
+            'table'
         );
     }
 
