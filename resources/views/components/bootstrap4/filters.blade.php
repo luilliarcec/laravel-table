@@ -2,7 +2,7 @@
     <div class="dropdown">
         <button
             type="button"
-            class="btn btn-dark dropdown-toggle"
+            {{ $attributes->merge(['class' => 'btn btn-dark dropdown-toggle']) }}
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
