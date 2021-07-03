@@ -1,9 +1,20 @@
-# Laravel Username Generator
+# Laravel Table
 
 [![run-tests](https://github.com/luilliarcec/laravel-table/actions/workflows/run-tests.yml/badge.svg)](https://github.com/luilliarcec/laravel-table/actions/workflows/run-tests.yml)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/luilliarcec/laravel-table.svg)](https://packagist.org/packages/luilliarcec/laravel-table)
 [![Total Downloads](https://img.shields.io/packagist/dt/luilliarcec/laravel-table)](https://packagist.org/packages/luilliarcec/laravel-table)
 [![GitHub license](https://img.shields.io/github/license/luilliarcec/laravel-table)](https://github.com/luilliarcec/laravel-table/blob/develop/LICENSE.md)
+
+The purpose of this package is to save time on filter and table design. Although there are similar packages, they add
+too much complexity or are tied to a frontend stack like Livewire or Inertiajs. However, this package is designed to be
+easy to use without the need for an additional stack.
+
+Its operation is simple, it takes the query of your request by adding your new queries to said query and synchronously
+filtering by making http requests.
+
+It should be noted that all filters will be grouped into an array called filters. On the other hand, the columns are
+grouped in a matrix called columns, in this way, the package is prepared to work perfectly with Spatie's package,
+laravel-query-builder.
 
 ## Installation
 
@@ -13,11 +24,15 @@ You can install the package via composer:
 composer require luilliarcec/laravel-table
 ```
 
+Can export package configuration and component views.
+
+```bash
+php artisan vendor:publish --provider="Luilliarcec\LaravelTable\LaravelTableServiceProvider"
+```
+
 ## Usage
 
-
 ## Examples
-
 
 ## Testing
 
