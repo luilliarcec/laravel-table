@@ -1,6 +1,6 @@
 <div>
-    <form action="" class="mb-6">
-        <div class="flex flex-wrap space-x-4 justify-end md:justify-between">
+    <form action="">
+        <div class="flex flex-wrap space-x-4 justify-end md:justify-between mb-5">
             @if($hasFilters())
                 @isset($filters)
                     {{ $filters }}
@@ -38,6 +38,12 @@
                 <x-table::icons.trigger class="text-gray-400"/>
             </button>
         </div>
+
+        @isset($actions)
+            <div class="flex flex-wrap space-x-4 justify-end md:justify-between mb-5">
+                {{ $actions }}
+            </div>
+        @endisset
     </form>
 
     <x-table::table-wrapper>

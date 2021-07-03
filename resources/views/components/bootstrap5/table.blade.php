@@ -35,6 +35,12 @@
                 </button>
             </div>
         </div>
+
+        @isset($actions)
+            <div class="row justify-content-end justify-content-md-between mb-3">
+                {{ $actions }}
+            </div>
+        @endisset
     </form>
 
     <x-table::table-wrapper>
