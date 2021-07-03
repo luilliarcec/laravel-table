@@ -2,23 +2,35 @@
     <form action="" class="mb-6">
         <div class="flex flex-wrap space-x-4 justify-end md:justify-between">
             @if($hasFilters())
-                <x-table::filters
-                    class="mt-2"
-                    :filters="$table->filters"
-                />
+                @isset($filters)
+                    {{ $filters }}
+                @else
+                    <x-table::filters
+                        class="mt-2"
+                        :filters="$table->filters"
+                    />
+                @endisset
             @endif
 
             @if($hasGlobalSearch())
-                <div class="flex-grow">
-                    <x-table::global-search class="mt-2"/>
-                </div>
+                @isset($globalSearch)
+                    {{ $globalSearch }}
+                @else
+                    <div class="flex-grow">
+                        <x-table::global-search class="mt-2"/>
+                    </div>
+                @endisset
             @endif
 
             @if($hasColumns())
-                <x-table::columns
-                    class="mt-2"
-                    :columns="$table->columns"
-                />
+                @isset($columns)
+                    {{ $columns }}
+                @else
+                    <x-table::columns
+                        class="mt-2"
+                        :columns="$table->columns"
+                    />
+                @endisset
             @endif
 
             <button type="submit"

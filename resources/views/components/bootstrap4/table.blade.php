@@ -2,19 +2,31 @@
     <form action="">
         <div class="row justify-content-end justify-content-md-between mb-3">
             @if($hasFilters())
-                <x-table::filters
-                    :filters="$table->filters"
-                />
+                @isset($filters)
+                    {{ $filters }}
+                @else
+                    <x-table::filters
+                        :filters="$table->filters"
+                    />
+                @endisset
             @endif
 
             @if($hasGlobalSearch())
-                <x-table::global-search/>
+                @isset($globalSearch)
+                    {{ $globalSearch }}
+                @else
+                    <x-table::global-search/>
+                @endisset
             @endif
 
             @if($hasColumns())
-                <x-table::columns
-                    :columns="$table->columns"
-                />
+                @isset($columns)
+                    {{ $columns }}
+                @else
+                    <x-table::columns
+                        :columns="$table->columns"
+                    />
+                @endisset
             @endif
 
             <div class="col-4 col-md-2 mt-2">
