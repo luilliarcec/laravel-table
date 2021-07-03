@@ -21,7 +21,7 @@ class LaravelTableServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/luilliarcec/table'),
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/table'),
             ], 'views');
         }
 
@@ -36,20 +36,10 @@ class LaravelTableServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'table');
+
         $this->app->singleton('Table', function () {
             return new BladeTable;
         });
-
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'table');
-    }
-
-    /**
-     * Array of blade components
-     */
-    private function components(): array
-    {
-        return [
-
-        ];
     }
 }
