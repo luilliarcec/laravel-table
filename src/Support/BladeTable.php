@@ -2,7 +2,6 @@
 
 namespace Luilliarcec\LaravelTable\Support;
 
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 
 class BladeTable
@@ -10,14 +9,48 @@ class BladeTable
     private $request;
     private $columns;
     private $filters;
-    private $globalSearch = true;
+    private $sort;
+    private $hasGlobalSearch = true;
 
     public function __construct()
     {
         $this->request = request();
 
+        $this->sort = $this->request->query('sort');
         $this->columns = new Collection;
         $this->filters = new Collection;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getColumns(): Collection
+    {
+        return $this->columns;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getFilters(): Collection
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasGlobalSearch(): bool
+    {
+        return $this->hasGlobalSearch;
+    }
+
+    /**
+     * @return array|string|null
+     */
+    public function getSort()
+    {
+        return $this->sort;
     }
 
     /**
@@ -27,26 +60,9 @@ class BladeTable
      */
     public function disableGlobalSearch(): self
     {
-        $this->globalSearch = false;
+        $this->hasGlobalSearch = false;
 
         return $this;
-    }
-
-    /**
-     * Build table with return all properties and sets the default
-     * values from the request query.
-     *
-     * @return object
-     */
-    public function build(): object
-    {
-        return (object)[
-            'sort' => $this->request->query('sort'),
-            'page' => Paginator::resolveCurrentPage(),
-            'globalSearch' => $this->globalSearch,
-            'columns' => $this->columns->all(),
-            'filters' => $this->filters->all(),
-        ];
     }
 
     /**
