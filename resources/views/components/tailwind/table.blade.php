@@ -57,8 +57,10 @@
             </tbody>
         </table>
 
-        <div class="m-4">
-            {{ $meta->links() }}
-        </div>
+        @if (method_exists($meta, 'links'))
+            <div class="m-4">
+                {{ $meta->links() }}
+            </div>
+        @endif
     </x-table::table-wrapper>
 </div>

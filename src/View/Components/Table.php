@@ -2,14 +2,12 @@
 
 namespace Luilliarcec\LaravelTable\View\Components;
 
-use Illuminate\Contracts\Pagination\Paginator;
-
 class Table extends Component
 {
     /**
-     * Paginated data. Paginator instance
+     * Paginated data or Eloquent Collection
      *
-     * @var Paginator
+     * @var \Illuminate\Contracts\Pagination\Paginator|\Illuminate\Database\Eloquent\Collection
      */
     public $meta;
 
@@ -23,10 +21,10 @@ class Table extends Component
     /**
      * Table constructor.
      *
-     * @param Paginator $meta
+     * @param \Illuminate\Contracts\Pagination\Paginator|\Illuminate\Database\Eloquent\Collection $meta
      * @param object $table
      */
-    public function __construct(Paginator $meta, object $table)
+    public function __construct($meta, object $table)
     {
         parent::__construct();
 

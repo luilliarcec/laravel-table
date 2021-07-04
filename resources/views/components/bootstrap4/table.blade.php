@@ -53,6 +53,8 @@
             </tbody>
         </table>
 
-        {{ $meta->links() }}
+        @if (method_exists($meta, 'links'))
+            {{ $meta->links() }}
+        @endif
     </x-table::table-wrapper>
 </div>
