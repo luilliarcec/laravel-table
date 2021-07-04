@@ -2,6 +2,8 @@
 
 namespace Luilliarcec\LaravelTable\View\Components;
 
+use Luilliarcec\LaravelTable\Support\BladeTable;
+
 class Table extends Component
 {
     /**
@@ -14,7 +16,7 @@ class Table extends Component
     /**
      * Object Table
      *
-     * @var object
+     * @var BladeTable
      */
     public $table;
 
@@ -22,9 +24,9 @@ class Table extends Component
      * Table constructor.
      *
      * @param \Illuminate\Contracts\Pagination\Paginator|\Illuminate\Database\Eloquent\Collection $meta
-     * @param object $table
+     * @param BladeTable $table
      */
-    public function __construct($meta, object $table)
+    public function __construct($meta, BladeTable $table)
     {
         parent::__construct();
 
@@ -39,7 +41,7 @@ class Table extends Component
      */
     public function hasFilters(): bool
     {
-        return (bool)$this->table->filters;
+        return $this->table->getFilters()->isNotEmpty();
     }
 
     /**
@@ -49,7 +51,7 @@ class Table extends Component
      */
     public function hasColumns(): bool
     {
-        return (bool)$this->table->columns;
+        return $this->table->getColumns()->isNotEmpty();
     }
 
     /**
@@ -59,7 +61,7 @@ class Table extends Component
      */
     public function hasGlobalSearch(): bool
     {
-        return $this->table->globalSearch;
+        return $this->table->hasGlobalSearch();
     }
 
     /**
