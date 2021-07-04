@@ -6,7 +6,7 @@
                     {{ $filters }}
                 @else
                     <x-table::filters
-                        :filters="$table->filters"
+                        :filters="$table->getFilters()->all()"
                     />
                 @endisset
             @endif
@@ -24,7 +24,7 @@
                     {{ $columns }}
                 @else
                     <x-table::columns
-                        :columns="$table->columns"
+                        :columns="$table->getColumns()->all()"
                     />
                 @endisset
             @endif

@@ -7,7 +7,7 @@
                 @else
                     <x-table::filters
                         class="mt-2"
-                        :filters="$table->filters"
+                        :filters="$table->getFilters()->all()"
                     />
                 @endisset
             @endif
@@ -28,7 +28,7 @@
                 @else
                     <x-table::columns
                         class="mt-2"
-                        :columns="$table->columns"
+                        :columns="$table->getColumns()->all()"
                     />
                 @endisset
             @endif
