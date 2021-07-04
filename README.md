@@ -70,6 +70,8 @@ JS. For example, the filters for a single date, use the `type="date"` so you wil
 want to use a date range filter you will have to add a JS plugin. From here from the top of Everest we recommend using
 `Flatpickr`, it is a very powerful component and very easy to use and does not depend on JQuery.
 
+By default, the table has a global filter, which you can disable by calling the diable method `disableGlobalSearch()`
+
 The use of the table constructor is as follows.:
 
 ```php
@@ -83,6 +85,7 @@ class UsersController extends Controller
         return view('users.index', [
             'users' => User::paginate(),
             'table' => $table
+                // ->disableGlobalSearch()
                 ->addFilter('created_at', 'Created At', Filter::DATE_RANGE)
                 ->addFilter('name', 'Name', Filter::TEXT)
                 ->addFilter('verified', 'Verified', Filter::SELECT, [
