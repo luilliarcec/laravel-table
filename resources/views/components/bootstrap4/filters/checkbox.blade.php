@@ -1,7 +1,7 @@
 @foreach($filter->options as $key => $option)
     <div class="form-check">
         <input
-            class="form-check-input"
+            class="form-check-input filter-checkbox"
             type="checkbox"
             name="{{ $name }}"
             value="{{ $key }}"
