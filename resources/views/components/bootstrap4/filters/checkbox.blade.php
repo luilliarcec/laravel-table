@@ -1,7 +1,7 @@
 @foreach($filter->options as $key => $option)
-    <div class="form-check">
+    <div class="custom-control custom-checkbox">
         <input
-            class="form-check-input filter-checkbox"
+            class="custom-control-input filter-checkbox"
             type="checkbox"
             name="{{ $name }}"
             value="{{ $key }}"
@@ -9,7 +9,7 @@
             {{ $isSelected($key) ? 'checked' : '' }}
         >
 
-        <label class="form-check-label" for="check_option_{{ $key }}">
+        <label class="custom-control-label" for="check_option_{{ $key }}">
             {{ $option }}
         </label>
     </div>
