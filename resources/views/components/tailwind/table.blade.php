@@ -12,7 +12,7 @@
                 @endisset
             @endif
 
-            @if($hasGlobalSearch())
+            @if($table->hasGlobalSearch())
                 @isset($globalSearch)
                     {{ $globalSearch }}
                 @else
@@ -33,10 +33,16 @@
                 @endisset
             @endif
 
-            <button type="submit"
-                    class="inline-flex mt-2 justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white">
-                <x-table::icons.trigger class="text-gray-400"/>
-            </button>
+            @if ($table->hasActionButton())
+                @isset($actionButton)
+                    {{ $actionButton }}
+                @else
+                    <button type="submit"
+                            class="inline-flex mt-2 justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white">
+                        <x-table::icons.trigger class="text-gray-400"/>
+                    </button>
+                @endisset
+            @endif
         </div>
 
         @isset($actions)

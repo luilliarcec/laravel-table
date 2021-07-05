@@ -11,7 +11,7 @@
                 @endisset
             @endif
 
-            @if($hasGlobalSearch())
+            @if($table->hasGlobalSearch())
                 @isset($globalSearch)
                     {{ $globalSearch }}
                 @else
@@ -29,11 +29,17 @@
                 @endisset
             @endif
 
-            <div class="col-4 col-md-2 mt-2">
-                <button type="submit" class="btn btn-dark w-100">
-                    <x-table::icons.trigger/>
-                </button>
-            </div>
+            @if ($table->hasActionButton())
+                @isset($actionButton)
+                    {{ $actionButton }}
+                @else
+                    <div class="col-4 col-md-2 mt-2">
+                        <button type="submit" class="btn btn-dark w-100">
+                            <x-table::icons.trigger/>
+                        </button>
+                    </div>
+                @endisset
+            @endif
         </div>
 
         @isset($actions)

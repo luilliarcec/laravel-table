@@ -11,6 +11,7 @@ class BladeTable
     private $filters;
     private $sort;
     private $hasGlobalSearch = true;
+    private $hasActionButton = true;
 
     public function __construct()
     {
@@ -38,6 +39,14 @@ class BladeTable
     }
 
     /**
+     * @return array|string|null
+     */
+    public function getSort()
+    {
+        return $this->sort;
+    }
+
+    /**
      * @return bool
      */
     public function hasGlobalSearch(): bool
@@ -46,11 +55,11 @@ class BladeTable
     }
 
     /**
-     * @return array|string|null
+     * @return bool
      */
-    public function getSort()
+    public function hasActionButton(): bool
     {
-        return $this->sort;
+        return $this->hasActionButton;
     }
 
     /**
@@ -61,6 +70,18 @@ class BladeTable
     public function disableGlobalSearch(): self
     {
         $this->hasGlobalSearch = false;
+
+        return $this;
+    }
+
+    /**
+     * Disable the action button.
+     *
+     * @return self
+     */
+    public function disableActionButton(): self
+    {
+        $this->hasActionButton = false;
 
         return $this;
     }

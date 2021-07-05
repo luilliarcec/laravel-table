@@ -55,16 +55,6 @@ class Table extends Component
     }
 
     /**
-     * Check if there are columns in the table
-     *
-     * @return bool
-     */
-    public function hasGlobalSearch(): bool
-    {
-        return $this->table->hasGlobalSearch();
-    }
-
-    /**
      * Get the view / contents that represent the component.
      *
      * @return \Illuminate\View\View|string
