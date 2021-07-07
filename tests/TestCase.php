@@ -2,13 +2,14 @@
 
 namespace Luilliarcec\LaravelTable\Tests;
 
-use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
 use Luilliarcec\LaravelTable\LaravelTableServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Styde\Whetstone\InteractsWithBlade;
+use Styde\Whetstone\WhetstoneServiceProvider;
 
 class TestCase extends Orchestra
 {
-    use InteractsWithViews;
+    use InteractsWithBlade;
 
     /**
      * Get package providers.
@@ -19,7 +20,10 @@ class TestCase extends Orchestra
      */
     protected function getPackageProviders($app): array
     {
-        return [LaravelTableServiceProvider::class];
+        return [
+            LaravelTableServiceProvider::class,
+            WhetstoneServiceProvider::class
+        ];
     }
 
     /**
@@ -32,6 +36,6 @@ class TestCase extends Orchestra
     protected function getEnvironmentSetUp($app)
     {
         /** Database */
-        $app['config']->set('theme', 'tailwind');
+        $app['config']->set('table.theme', 'tailwind');
     }
 }
