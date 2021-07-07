@@ -96,17 +96,13 @@ class BladeTable
     public function addColumn(string $key, string $label): self
     {
         $columns = $this->request->query('columns');
-        $enable = true;
+        $enabled = true;
 
         if (!empty($columns)) {
-            $enable = in_array($key, $columns);
+            $enabled = in_array($key, $columns);
         }
 
-        $this->columns->put($key, (object)[
-            'key' => $key,
-            'label' => $label,
-            'enabled' => $enable,
-        ]);
+        $this->columns->put($key, new Column($key, $label, $enabled));
 
         return $this;
     }
