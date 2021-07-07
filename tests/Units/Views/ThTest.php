@@ -25,9 +25,9 @@ class ThTest extends TestCase
     }
 
     /** @test */
-    public function render_with_bootstrap5_theme()
+    public function render_with_bootstrap4_theme()
     {
-        $this->app['config']->set('table.theme', 'bootstrap5');
+        $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
             ->template('<x-table::th :column-key="$key">Name</x-table::th>')
@@ -38,9 +38,9 @@ class ThTest extends TestCase
     }
 
     /** @test */
-    public function render_with_bootstrap4_theme()
+    public function render_with_bootstrap5_theme()
     {
-        $this->app['config']->set('table.theme', 'bootstrap4');
+        $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
             ->template('<x-table::th :column-key="$key">Name</x-table::th>')

@@ -1,9 +1,8 @@
 <?php
 
-namespace Luilliarcec\LaravelTable\Tests\Units\Views;
+namespace Luilliarcec\LaravelTable\Tests;
 
 use Illuminate\Support\Collection;
-use Luilliarcec\LaravelTable\Tests\TestCase;
 use Luilliarcec\LaravelTable\View\Components\Table;
 
 class TableComponentTest extends TestCase
