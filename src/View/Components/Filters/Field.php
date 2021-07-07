@@ -2,6 +2,7 @@
 
 namespace Luilliarcec\LaravelTable\View\Components\Filters;
 
+use Luilliarcec\LaravelTable\Support\Filter;
 use Luilliarcec\LaravelTable\View\Components\Component;
 
 abstract class Field extends Component
@@ -9,16 +10,16 @@ abstract class Field extends Component
     /**
      * Filter object.
      *
-     * @var object
+     * @var Filter
      */
     public $filter;
 
     /**
      * Field constructor.
      *
-     * @param object $filter
+     * @param Filter $filter
      */
-    public function __construct(object $filter)
+    public function __construct(Filter $filter)
     {
         parent::__construct();
 
