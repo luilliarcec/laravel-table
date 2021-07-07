@@ -30,8 +30,6 @@ class Table extends Component
      */
     public function __construct($meta, BladeTable $table)
     {
-        $this->validateMetaArgument($meta);
-
         parent::__construct();
 
         $this->meta = $meta;
@@ -66,24 +64,5 @@ class Table extends Component
     public function render()
     {
         return "table::components.$this->theme.table";
-    }
-
-    /**
-     * Validate the data type of the argument meta given
-     *
-     * @param $meta
-     */
-    private function validateMetaArgument($meta)
-    {
-        if (!is_a($meta, Paginator::class) || !is_a($meta, Collection::class)) {
-            $message = sprintf('Argument %s passed to %s must be an instance of %s, %s given',
-                1,
-                'Luilliarcec\LaravelTable\View\Components\Table::__construct()',
-                'Illuminate\Contracts\Pagination\Paginator|Illuminate\Support\Collection',
-                strtolower(gettype($meta))
-            );
-
-            throw new \TypeError($message);
-        }
     }
 }
