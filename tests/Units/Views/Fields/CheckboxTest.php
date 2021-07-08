@@ -14,7 +14,8 @@ class CheckboxTest extends TestCase
 
         $view = $this
             ->template('<x-table::filters.checkbox :filter="$filter"/>')
-            ->withData('filter',
+            ->withData(
+                'filter',
                 Filter::build('languages', 'Languages', Filter::CHECKBOX, [
                     'php' => 'PHP',
                     'python' => 'Python',
@@ -47,7 +48,8 @@ class CheckboxTest extends TestCase
 
         $view = $this
             ->template('<x-table::filters.checkbox :filter="$filter"/>')
-            ->withData('filter',
+            ->withData(
+                'filter',
                 Filter::build('languages', 'Languages', Filter::CHECKBOX, [
                     'php' => 'PHP',
                     'python' => 'Python',
@@ -80,7 +82,8 @@ class CheckboxTest extends TestCase
 
         $view = $this
             ->template('<x-table::filters.checkbox :filter="$filter"/>')
-            ->withData('filter',
+            ->withData(
+                'filter',
                 Filter::build('languages', 'Languages', Filter::CHECKBOX, [
                     'php' => 'PHP',
                     'python' => 'Python',

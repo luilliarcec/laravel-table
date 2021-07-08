@@ -14,7 +14,8 @@ class SelectTest extends TestCase
 
         $view = $this
             ->template('<x-table::filters.select :filter="$filter"/>')
-            ->withData('filter',
+            ->withData(
+                'filter',
                 Filter::build('languages', 'Languages', Filter::SELECT, [
                     'php' => 'PHP',
                     'python' => 'Python',
@@ -41,7 +42,8 @@ class SelectTest extends TestCase
 
         $view = $this
             ->template('<x-table::filters.select :filter="$filter"/>')
-            ->withData('filter',
+            ->withData(
+                'filter',
                 Filter::build('languages', 'Languages', Filter::SELECT, [
                     'php' => 'PHP',
                     'python' => 'Python',
@@ -68,7 +70,8 @@ class SelectTest extends TestCase
 
         $view = $this
             ->template('<x-table::filters.select :filter="$filter"/>')
-            ->withData('filter',
+            ->withData(
+                'filter',
                 Filter::build('languages', 'Languages', Filter::SELECT, [
                     'php' => 'PHP',
                     'python' => 'Python',
