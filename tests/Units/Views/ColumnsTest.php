@@ -24,7 +24,11 @@ class ColumnsTest extends TestCase
                 <div>
                     <div class="relative">
                         <button type="button" onclick="dropdown(event, \'columns-dropdown\', \'bottom-end\')" class="w-full inline-flex justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white ease-linear transition-all duration-150" aria-expanded="false" >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-white text-gray-400" style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="text-white text-gray-400"
+                                 style="height: 1.25rem; width: 1.25rem"
+                                 viewBox="0 0 20 20"
+                                 fill="currentColor">
                                 <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                             </svg>
                         </button>
@@ -73,7 +77,11 @@ class ColumnsTest extends TestCase
                 <div class="col-3 col-md-1 mt-2">
                     <div class="dropdown">
                         <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-white" style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="text-white"
+                                 style="height: 1.25rem; width: 1.25rem"
+                                 viewBox="0 0 20 20"
+                                 fill="currentColor">
                                 <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                             </svg>
                         </button>
@@ -117,7 +125,11 @@ class ColumnsTest extends TestCase
                 <div class="col-3 col-md-1 mt-2">
                     <div class="dropdown">
                         <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-white" style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="text-white"
+                                 style="height: 1.25rem; width: 1.25rem"
+                                 viewBox="0 0 20 20"
+                                 fill="currentColor">
                                 <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                             </svg>
                         </button>
@@ -162,7 +174,11 @@ class ColumnsTest extends TestCase
             <div>
                 <div class="relative">
                     <button type="button" onclick="dropdown(event, \'columns-dropdown\', \'bottom-end\')" class="w-full inline-flex justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white ease-linear transition-all duration-150" aria-expanded="false" >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-white text-gray-400" style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="text-white text-gray-400"
+                             style="height: 1.25rem; width: 1.25rem"
+                             viewBox="0 0 20 20"
+                             fill="currentColor">
                             <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                         </svg>
                     </button>
