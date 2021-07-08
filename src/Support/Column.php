@@ -20,16 +20,38 @@ class Column
     public $enabled;
 
     /**
+     * @var array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Request|string|null
+     */
+    private $request;
+
+    /**
      * Column constructor.
      *
      * @param string $key
      * @param string $label
-     * @param bool $enabled
      */
-    public function __construct(string $key, string $label, bool $enabled = true)
+    public function __construct(string $key, string $label)
     {
+        $this->request = request();
         $this->key = $key;
         $this->label = $label;
-        $this->enabled = $enabled;
+        $this->enabled = $this->isEnabled($key);
+    }
+
+    /**
+     * Check if the column is enabled
+     *
+     * @param string $key
+     * @return bool
+     */
+    private function isEnabled(string $key): bool
+    {
+        $columns = $this->request->query('columns');
+
+        if (!empty($columns)) {
+            return in_array($key, $columns);
+        }
+
+        return true;
     }
 }

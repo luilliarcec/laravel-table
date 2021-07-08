@@ -6,7 +6,6 @@ use Illuminate\Support\Collection;
 
 class BladeTable
 {
-    private $request;
     private $columns;
     private $filters;
     private $sort;
@@ -15,9 +14,7 @@ class BladeTable
 
     public function __construct()
     {
-        $this->request = request();
-
-        $this->sort = $this->request->query('sort');
+        $this->sort = request()->query('sort');
         $this->columns = new Collection;
         $this->filters = new Collection;
     }
@@ -95,14 +92,7 @@ class BladeTable
      */
     public function addColumn(string $key, string $label): self
     {
-        $columns = $this->request->query('columns');
-        $enabled = true;
-
-        if (!empty($columns)) {
-            $enabled = in_array($key, $columns);
-        }
-
-        $this->columns->put($key, new Column($key, $label, $enabled));
+        $this->columns->put($key, new Column($key, $label));
 
         return $this;
     }
