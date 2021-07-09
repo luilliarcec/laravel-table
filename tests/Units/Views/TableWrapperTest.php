@@ -34,14 +34,11 @@ class TableWrapperTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::table-wrapper> ... </x-table::table-wrapper>');
+            ->template('<x-table::table-wrapper>...</x-table::table-wrapper>');
 
         $view
             ->assertRender('
-                <div class="card card-body border-0 shadow table-responsive">
-                    ...
-                </div>
-            ');
+                <div class="card card-body border-0 shadow table-responsive">...</div>');
     }
 
     /** @test */
@@ -50,13 +47,11 @@ class TableWrapperTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::table-wrapper> ... </x-table::table-wrapper>');
+            ->template('<x-table::table-wrapper>...</x-table::table-wrapper>');
 
         $view
             ->assertRender('
-                <div class="card card-body border-0 shadow table-responsive">
-                    ...
-                </div>
+                <div class="card card-body border-0 shadow table-responsive">...</div>
             ');
     }
 }
