@@ -237,8 +237,11 @@ class TableTest extends TestCase
                             <div class="dropdown">
                                 <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-white"
-                                         style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         class="text-white"
+                                         style="height: 1.25rem; width: 1.25rem"
+                                         viewBox="0 0 20 20"
+                                         fill="currentColor">
                                         <path fill-rule="evenodd"
                                               d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
                                               clip-rule="evenodd" />
@@ -250,7 +253,7 @@ class TableTest extends TestCase
                                             <p class="px-3 py-2 mb-0 fw-light text-uppercase bg-light rounded-top"
                                                style="font-size: 14px"> Name </p>
                                             <div class="p-2">
-                                                <input type="text" class="form-control filter-text" name="filter[name]" value="" >
+                                                <input type="text" class="form-control filter-text" name="filter[name]" value="">
                                             </div>
                                         </div>
                                     </li>
@@ -269,8 +272,12 @@ class TableTest extends TestCase
                             <div class="dropdown">
                                 <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="text-white"
-                                         style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="text-white"
+                                        style="height: 1.25rem; width: 1.25rem"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor">
                                         <path
                                             d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                                     </svg>
