@@ -26,7 +26,7 @@ class SelectTest extends TestCase
         $view
             ->assertSee('filter-select')
             ->assertRender('
-                <select class="block focus:ring-1 focus:ring-blue-900 focus:border-blue-900 w-full shadow-sm text-sm border-gray-300 rounded-md filter-select" name="filter[languages]" >
+                <select class="block focus:ring-1 focus:ring-blue-900 focus:border-blue-900 w-full shadow-sm text-sm border-gray-300 rounded-md filter-select" name="filter[languages]">
                     <option value="" selected > - </option>
                     <option value="php" > PHP </option>
                     <option value="python" > Python </option>
