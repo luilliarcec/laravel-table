@@ -24,7 +24,12 @@ class FiltersTest extends TestCase
                 <div>
                     <div class="relative">
                         <button type="button" onclick="dropdown(event, \'filters-dropdown\')" class="w-full inline-flex justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white ease-linear transition-all duration-150" aria-expanded="false" >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-white text-gray-400" style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="text-white text-gray-400"
+                                style="height: 1.25rem; width: 1.25rem"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
                                 <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
                             </svg>
                         </button>
@@ -35,7 +40,7 @@ class FiltersTest extends TestCase
                                         Name
                                     </h3>
                                     <div class="p-2">
-                                        <input type="text" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-700 block w-full pr-10 text-sm rounded-md filter-text" name="filter[name]" value="" >
+                                        <input type="text" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-700 block w-full pr-10 text-sm rounded-md filter-text" name="filter[name]" value="">
                                     </div>
                                 </div>
                                 <div>
@@ -43,7 +48,7 @@ class FiltersTest extends TestCase
                                         Created At
                                     </h3>
                                     <div class="p-2">
-                                        <input type="date" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-700 block w-full pr-10 text-sm rounded-md filter-date" name="filter[created_at]" value="" >
+                                        <input type="date" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-700 block w-full pr-10 text-sm rounded-md filter-date" name="filter[created_at]" value="">
                                     </div>
                                 </div>
                                 <div>
@@ -80,7 +85,12 @@ class FiltersTest extends TestCase
                 <div class="col-3 col-md-1 mt-2">
                     <div class="dropdown">
                         <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-white" style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="text-white"
+                                style="height: 1.25rem; width: 1.25rem"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
                                 <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
                             </svg>
                         </button>
@@ -89,7 +99,7 @@ class FiltersTest extends TestCase
                                 <div class="rounded-top px-0 py-0">
                                     <p class="px-3 py-2 mb-0 fw-light text-uppercase bg-light rounded-top" style="font-size: 14px"> Name </p>
                                     <div class="p-2">
-                                        <input type="text" class="form-control filter-text" name="filter[name]" value="" >
+                                        <input type="text" class="form-control filter-text" name="filter[name]" value="">
                                     </div>
                                 </div>
                             </li>
@@ -97,7 +107,7 @@ class FiltersTest extends TestCase
                                 <div class="rounded-top px-0 py-0">
                                     <p class="px-3 py-2 mb-0 fw-light text-uppercase bg-light rounded-top" style="font-size: 14px"> Created At </p>
                                     <div class="p-2">
-                                        <input type="date" class="form-control filter-date" name="filter[created_at]" value="" >
+                                        <input type="date" class="form-control filter-date" name="filter[created_at]" value="">
                                     </div>
                                 </div>
                             </li>
@@ -130,7 +140,12 @@ class FiltersTest extends TestCase
                 <div class="col-3 col-md-1 mt-2">
                     <div class="dropdown">
                         <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-white" style="height: 1.25rem; width: 1.25rem" viewBox="0 0 20 20" fill="currentColor" >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="text-white"
+                                style="height: 1.25rem; width: 1.25rem"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
                                 <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
                             </svg>
                         </button>
@@ -139,7 +154,7 @@ class FiltersTest extends TestCase
                                 <div class="rounded-top px-0 py-0">
                                     <p class="px-3 py-2 mb-0 fw-light text-uppercase bg-light rounded-top" style="font-size: 14px"> Name </p>
                                     <div class="p-2">
-                                        <input type="text" class="form-control filter-text" name="filter[name]" value="" >
+                                        <input type="text" class="form-control filter-text" name="filter[name]" value="">
                                     </div>
                                 </div>
                             </li>
@@ -147,7 +162,7 @@ class FiltersTest extends TestCase
                                 <div class="rounded-top px-0 py-0">
                                     <p class="px-3 py-2 mb-0 fw-light text-uppercase bg-light rounded-top" style="font-size: 14px"> Created At </p>
                                     <div class="p-2">
-                                        <input type="date" class="form-control filter-date" name="filter[created_at]" value="" >
+                                        <input type="date" class="form-control filter-date" name="filter[created_at]" value="">
                                     </div>
                                 </div>
                             </li>
