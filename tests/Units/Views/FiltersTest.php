@@ -23,7 +23,7 @@ class FiltersTest extends TestCase
             ->assertRender('
                 <div>
                     <div class="relative">
-                        <button type="button" onclick="dropdown(event, \'filters-dropdown\')" class="w-full inline-flex justify-center py-2 px-4 border focus:outline-none disabled:opacity-50 disabled:cursor-default font-semibold leading-6 rounded shadow-sm hover:shadow focus:ring focus:ring-opacity-25 active:shadow-none border-gray-300 bg-white text-gray-800 hover:text-gray-800 hover:border-gray-300 focus:ring-gray-300 active:bg-white active:border-white ease-linear transition-all duration-150" aria-expanded="false" >
+                        <button type="button" onclick="dropdown(event, \'filters-dropdown\')" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm hover:shadow font-semibold rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-100 disabled:opacity-50 active:bg-white leading-5 transition" aria-expanded="false" >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="text-white text-gray-400"
