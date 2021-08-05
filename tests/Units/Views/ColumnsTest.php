@@ -28,7 +28,7 @@ class ColumnsTest extends TestCase
                         </svg>
                     </button>
                     <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute z-50 mt-2 w-64 rounded-md shadow-lg origin-top-right right-0" style="display: none;">
-                        <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white">
+                        <div class="rounded-md ring-1 ring-black ring-opacity-5 bg-white">
                             <ul class="px-4 py-3 divide-y divide-gray-200">
                                 <li class="py-2 flex items-center justify-between">
                                     <label for="column_name" class="text-sm font-semibold tracking-wide text-gray-900"> Name </label>
@@ -169,7 +169,7 @@ class ColumnsTest extends TestCase
                     </svg>
                 </button>
                 <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute z-50 mt-2 w-64 rounded-md shadow-lg origin-top-right right-0" style="display: none;">
-                    <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white">
+                    <div class="rounded-md ring-1 ring-black ring-opacity-5 bg-white">
                         <ul class="px-4 py-3 divide-y divide-gray-200">
                             <li class="py-2 flex items-center justify-between">
                                 <label for="column_name" class="text-sm font-semibold tracking-wide text-gray-900"> Name </label>
