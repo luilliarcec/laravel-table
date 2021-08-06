@@ -35,7 +35,7 @@ class FiltersTest extends TestCase
                                         Name
                                     </h3>
                                     <div class="p-2">
-                                        <input type="text" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-700 block w-full pr-10 text-sm rounded-md filter-text" name="filter[name]" value="">
+                                        <input type="text" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-900 block w-full pr-10 text-sm rounded-md filter-text" name="filter[name]" value="">
                                     </div>
                                 </li>
                                 <li>
@@ -43,7 +43,7 @@ class FiltersTest extends TestCase
                                         Created At
                                     </h3>
                                     <div class="p-2">
-                                        <input type="date" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-700 block w-full pr-10 text-sm rounded-md filter-date" name="filter[created_at]" value="">
+                                        <input type="date" class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-900 block w-full pr-10 text-sm rounded-md filter-date" name="filter[created_at]" value="">
                                     </div>
                                 </li>
                                 <li>
