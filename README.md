@@ -41,6 +41,8 @@ return [
 ];
 ```
 
+**  When using the Tailwind theme make sure you have AlpineJS installed.
+
 To make use of the package, it is very simple, you just have to inject the `Luilliarcec\LaravelTable\Support\BladeTable`
 class as a dependency or use the Facade `Luilliarcec\LaravelTable\Facades\Table` in your controller, for example:
 
