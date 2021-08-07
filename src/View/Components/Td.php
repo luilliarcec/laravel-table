@@ -7,29 +7,20 @@ class Td extends Component
     /**
      * Column Key.
      *
-     * @var string
+     * @var string|null
      */
     public $columnKey;
 
     /**
-     * Show column
-     *
-     * @var bool
-     */
-    private $show;
-
-    /**
      * Td constructor.
      *
-     * @param string $columnKey
-     * @param bool $show
+     * @param string|null $columnKey
      */
-    public function __construct(string $columnKey, bool $show = false)
+    public function __construct(?string $columnKey = null)
     {
         parent::__construct();
 
         $this->columnKey = $columnKey;
-        $this->show = $show;
     }
 
     /**
@@ -43,7 +34,7 @@ class Td extends Component
             return true;
         }
 
-        return $this->show ?: in_array($this->columnKey, request('columns', []));
+        return is_null($this->columnKey) || in_array($this->columnKey, request('columns', []));
     }
 
     /**
