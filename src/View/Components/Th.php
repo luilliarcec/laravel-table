@@ -19,6 +19,11 @@ class Th extends Component
     public $sortable;
 
     /**
+     * @var bool
+     */
+    public $static;
+
+    /**
      * @var string|null
      */
     public $order = null;
@@ -33,13 +38,15 @@ class Th extends Component
      *
      * @param string|null $columnKey
      * @param bool $sortable
+     * @param bool $static
      */
-    public function __construct(?string $columnKey = null, bool $sortable = false)
+    public function __construct(?string $columnKey = null, bool $sortable = false, bool $static = false)
     {
         parent::__construct();
 
         $this->columnKey = $columnKey;
         $this->sortable = $sortable;
+        $this->static = $static;
 
         if ($this->columnKey && $this->sortable) {
             $this->order = $this->order($columnKey);
@@ -57,13 +64,10 @@ class Th extends Component
     {
         $sort = request('sort');
 
-        if ($columnKey === $sort) {
-            return 'asc';
-        } elseif ("-$columnKey" === $sort) {
-            return 'desc';
-        } else {
-            return null;
-        }
+        if ($columnKey === $sort) return 'asc';
+        if ("-$columnKey" === $sort) return 'desc';
+
+        return null;
     }
 
     /**
@@ -74,13 +78,10 @@ class Th extends Component
      */
     private function sort(?string $order): ?string
     {
-        if ($order === 'asc') {
-            return "-$this->columnKey";
-        } elseif ($order === 'desc') {
-            return null;
-        } else {
-            return $this->columnKey;
-        }
+        if ($order === 'asc') return "-$this->columnKey";
+        if ($order === 'desc') return null;
+
+        return $this->columnKey;
     }
 
     /**
@@ -112,7 +113,9 @@ class Th extends Component
             return true;
         }
 
-        return is_null($this->columnKey) || in_array($this->columnKey, request('columns', []));
+        return $this->static
+            || is_null($this->columnKey)
+            || in_array($this->columnKey, request('columns', []));
     }
 
     /**
