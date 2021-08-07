@@ -168,27 +168,27 @@ You can use your table with filters in your views as follows.:
     <x-slot name="head">
         <tr>
             <!-- This is a static column that is always displayed -->
-            <x-table::th column-key="id" class="border-gray-200" :show="true">
+            <x-table::th class="border-gray-200">
                 Id
             </x-table::th>
 
             <!-- This is a sortable column that is always displayed -->
-            <x-table::th column-key="name" class="border-gray-200" :sortable="true" :show="true">
+            <x-table::th column-key="name" class="border-gray-200" sortable static>
                 Name
             </x-table::th>
 
             <!-- This is a conditionally displayable and sortable column -->
-            <x-table::th column-key="email" class="border-gray-200" :sortable="true">
+            <x-table::th column-key="email" class="border-gray-200" sortable>
                 Email
             </x-table::th>
 
             <!-- This is a conditionally displayable and sortable column -->
-            <x-table::th column-key="email_verified_at" class="border-gray-200" :sortable="true">
+            <x-table::th column-key="email_verified_at" class="border-gray-200" sortable>
                 Email verified at
             </x-table::th>
 
             <!-- This is a conditionally displayable and sortable column -->
-            <x-table::th column-key="created_at" class="border-gray-200" :sortable="true">
+            <x-table::th column-key="created_at" class="border-gray-200" sortable>
                 Created at
             </x-table::th>
         </tr>
@@ -197,11 +197,11 @@ You can use your table with filters in your views as follows.:
     <x-slot name="body">
         @foreach($users as $user)
         <tr>
-            <x-table::th scope="row" column-key="id" :show="true">
+            <x-table::th scope="row">
                 {{ $user->id }}
             </x-table::th>
 
-            <x-table::td column-key="name" :show="true">
+            <x-table::td>
                 {{ $user->name }}
             </x-table::td>
 
