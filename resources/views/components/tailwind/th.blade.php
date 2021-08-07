@@ -34,7 +34,9 @@
                 </svg>
             </a>
         @else
-            {{ $slot }}
+            <span class="flex flex-row items-center font-bold">
+                {{ $slot }}
+            </span>
         @endif
     </th>
 @endif
