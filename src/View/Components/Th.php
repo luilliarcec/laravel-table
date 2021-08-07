@@ -14,13 +14,6 @@ class Th extends Component
     public $columnKey;
 
     /**
-     * Show column
-     *
-     * @var bool
-     */
-    private $show;
-
-    /**
      * @var bool
      */
     public $sortable;
@@ -28,29 +21,30 @@ class Th extends Component
     /**
      * @var string|null
      */
-    public $order;
+    public $order = null;
 
     /**
      * @var string|null
      */
-    private $sort;
+    private $sort = null;
 
     /**
      * Td constructor.
      *
-     * @param string $columnKey
-     * @param bool $show
+     * @param string|null $columnKey
      * @param bool $sortable
      */
-    public function __construct(string $columnKey, bool $show = false, bool $sortable = false)
+    public function __construct(?string $columnKey = null, bool $sortable = false)
     {
         parent::__construct();
 
         $this->columnKey = $columnKey;
-        $this->show = $show;
         $this->sortable = $sortable;
-        $this->order = $this->order($columnKey);
-        $this->sort = $this->sort($this->order);
+
+        if ($this->columnKey && $this->sortable) {
+            $this->order = $this->order($columnKey);
+            $this->sort = $this->sort($this->order);
+        }
     }
 
     /**
@@ -118,7 +112,7 @@ class Th extends Component
             return true;
         }
 
-        return $this->show ?: in_array($this->columnKey, request('columns', []));
+        return is_null($this->columnKey) || in_array($this->columnKey, request('columns', []));
     }
 
     /**
