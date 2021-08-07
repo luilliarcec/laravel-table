@@ -20,7 +20,7 @@ class GlobalSearchTest extends TestCase
                     <input
                         class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-900 block w-full pr-10 text-sm rounded-md"
                         name="filter[global]"
-                        type="text"
+                        type="search"
                         placeholder="Search..."
                         aria-label="Global search"
                         value=""
@@ -49,7 +49,7 @@ class GlobalSearchTest extends TestCase
                     <input
                         class="form-control"
                         name="filter[global]"
-                        type="text"
+                        type="search"
                         placeholder="Search..."
                         aria-label="Global search"
                         value=""
@@ -72,7 +72,7 @@ class GlobalSearchTest extends TestCase
                     <input
                         class="form-control"
                         name="filter[global]"
-                        type="text"
+                        type="search"
                         placeholder="Search..."
                         aria-label="Global search"
                         value=""
