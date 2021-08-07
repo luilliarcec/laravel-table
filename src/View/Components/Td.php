@@ -34,7 +34,8 @@ class Td extends Component
             return true;
         }
 
-        return is_null($this->columnKey) || in_array($this->columnKey, request('columns', []));
+        return is_null($this->columnKey)
+            || in_array($this->columnKey, request('columns', []));
     }
 
     /**
