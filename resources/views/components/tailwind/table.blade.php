@@ -61,9 +61,7 @@
         </table>
 
         @if (method_exists($meta, 'links'))
-            <div class="m-4">
-                {{ $meta->links() }}
-            </div>
+            {{ $meta->links() }}
         @endif
     </x-table::table-wrapper>
 </div>

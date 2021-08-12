@@ -19,7 +19,7 @@ class ThTest extends TestCase
             ->assertRender('
                 <th
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
+                    <span class="flex flex-row items-center font-bold"> Name </span>
                 </th>
             ');
     }
