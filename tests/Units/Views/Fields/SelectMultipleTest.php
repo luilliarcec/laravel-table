@@ -26,7 +26,7 @@ class SelectMultipleTest extends TestCase
         $view
             ->assertSee('filter-select-multiple')
             ->assertRender('
-                <select class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-900 block w-full pr-10 text-sm rounded-md filter-select-multiple" name="filter[languages][]" multiple>
+                <select class="border-gray-300 focus:ring-1 focus:ring-blue-900 focus:border-blue-900 block w-full text-sm rounded-md filter-select-multiple" name="filter[languages][]" multiple>
                     <option value="php" > PHP </option>
                     <option value="python" > Python </option>
                     <option value="js" > Javascript </option>
