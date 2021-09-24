@@ -5,7 +5,7 @@
                 @isset($filters)
                     {{ $filters }}
                 @else
-                    <x-table::filters
+                    <x-table-filters
                         class="mt-2"
                         :filters="$table->getFilters()->all()"
                     />
@@ -17,7 +17,7 @@
                     {{ $globalSearch }}
                 @else
                     <div class="flex-grow">
-                        <x-table::global-search class="mt-2"/>
+                        <x-table-global-search class="mt-2"/>
                     </div>
                 @endisset
             @endif
@@ -26,7 +26,7 @@
                 @isset($columns)
                     {{ $columns }}
                 @else
-                    <x-table::columns
+                    <x-table-columns
                         class="mt-2"
                         :columns="$table->getColumns()->all()"
                     />
@@ -37,7 +37,7 @@
                 @isset($actionButton)
                     {{ $actionButton }}
                 @else
-                    <x-table::action-button/>
+                    <x-table-action-button/>
                 @endisset
             @endif
         </div>
@@ -49,7 +49,7 @@
         @endisset
     </form>
 
-    <x-table::table-wrapper>
+    <x-table-table-wrapper>
         <table class="min-w-full divide-y divide-gray-200 bg-white">
             <thead class="bg-gray-100">
             {{ $head }}
@@ -63,5 +63,5 @@
         @if (method_exists($meta, 'links'))
             {{ $meta->links() }}
         @endif
-    </x-table::table-wrapper>
+    </x-table-table-wrapper>
 </div>

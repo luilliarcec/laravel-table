@@ -5,7 +5,7 @@
                 @isset($filters)
                     {{ $filters }}
                 @else
-                    <x-table::filters
+                    <x-table-filters
                         :filters="$table->getFilters()->all()"
                     />
                 @endisset
@@ -15,7 +15,7 @@
                 @isset($globalSearch)
                     {{ $globalSearch }}
                 @else
-                    <x-table::global-search/>
+                    <x-table-global-search/>
                 @endisset
             @endif
 
@@ -23,7 +23,7 @@
                 @isset($columns)
                     {{ $columns }}
                 @else
-                    <x-table::columns
+                    <x-table-columns
                         :columns="$table->getColumns()->all()"
                     />
                 @endisset
@@ -33,7 +33,7 @@
                 @isset($actionButton)
                     {{ $actionButton }}
                 @else
-                    <x-table::action-button/>
+                    <x-table-action-button/>
                 @endisset
             @endif
         </div>
@@ -45,7 +45,7 @@
         @endisset
     </form>
 
-    <x-table::table-wrapper>
+    <x-table-table-wrapper>
         <table class="table table-hover">
             <thead>
             {{ $head }}
@@ -58,5 +58,5 @@
         @if (method_exists($meta, 'links'))
             {{ $meta->links() }}
         @endif
-    </x-table::table-wrapper>
+    </x-table-table-wrapper>
 </div>

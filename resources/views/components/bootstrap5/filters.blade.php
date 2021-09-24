@@ -19,17 +19,17 @@
 
                         <div class="p-2">
                             @if($filter->type === \Luilliarcec\LaravelTable\Support\Filter::SELECT)
-                                <x-table::filters.select :filter="$filter"/>
+                                <x-table-filters.select :filter="$filter"/>
                             @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::TEXT)
-                                <x-table::filters.text :filter="$filter"/>
+                                <x-table-filters.text :filter="$filter"/>
                             @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::DATE)
-                                <x-table::filters.date :filter="$filter"/>
+                                <x-table-filters.date :filter="$filter"/>
                             @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::DATE_RANGE)
-                                <x-table::filters.date-range :filter="$filter"/>
+                                <x-table-filters.date-range :filter="$filter"/>
                             @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::CHECKBOX)
-                                <x-table::filters.checkbox :filter="$filter"/>
+                                <x-table-filters.checkbox :filter="$filter"/>
                             @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::SELECT_MULTIPLE)
-                                <x-table::filters.select-multiple :filter="$filter"/>
+                                <x-table-filters.select-multiple :filter="$filter"/>
                             @endif
                         </div>
                     </div>
