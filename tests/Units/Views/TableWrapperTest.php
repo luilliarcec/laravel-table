@@ -12,7 +12,7 @@ class TableWrapperTest extends TestCase
         $this->app['config']->set('table.theme', 'tailwind');
 
         $view = $this
-            ->template('<x-table::table-wrapper> ... </x-table::table-wrapper>');
+            ->template('<x-table-table-wrapper> ... </x-table-table-wrapper>');
 
         $view
             ->assertRender('
@@ -34,7 +34,7 @@ class TableWrapperTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::table-wrapper>...</x-table::table-wrapper>');
+            ->template('<x-table-table-wrapper>...</x-table-table-wrapper>');
 
         $view
             ->assertRender('
@@ -47,7 +47,7 @@ class TableWrapperTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::table-wrapper>...</x-table::table-wrapper>');
+            ->template('<x-table-table-wrapper>...</x-table-table-wrapper>');
 
         $view
             ->assertRender('

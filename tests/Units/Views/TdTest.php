@@ -12,7 +12,7 @@ class TdTest extends TestCase
         $this->app['config']->set('table.theme', 'tailwind');
 
         $view = $this
-            ->template('<x-table::td :column-key="$key">Name</x-table::td>')
+            ->template('<x-table-td :column-key="$key">Name</x-table-td>')
             ->withData('key', 'name');
 
         $view
@@ -27,7 +27,7 @@ class TdTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::td :column-key="$key">Name</x-table::td>')
+            ->template('<x-table-td :column-key="$key">Name</x-table-td>')
             ->withData('key', 'name');
 
         $view
@@ -40,7 +40,7 @@ class TdTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::td :column-key="$key">Name</x-table::td>')
+            ->template('<x-table-td :column-key="$key">Name</x-table-td>')
             ->withData('key', 'name');
 
         $view
@@ -55,7 +55,7 @@ class TdTest extends TestCase
         $this->get('/?columns[]=name');
 
         $view = $this
-            ->template('<x-table::td :column-key="$key">Name</x-table::td>')
+            ->template('<x-table-td :column-key="$key">Name</x-table-td>')
             ->withData('key', 'name');
 
         $view->assertRender('
@@ -71,7 +71,7 @@ class TdTest extends TestCase
         $this->get('/?columns[]=email');
 
         $view = $this
-            ->template('<x-table::td :column-key="$key">Name</x-table::td>')
+            ->template('<x-table-td :column-key="$key">Name</x-table-td>')
             ->withData('key', 'name');
 
         $view->assertRender('');

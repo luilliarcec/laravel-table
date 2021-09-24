@@ -12,7 +12,7 @@ class GlobalSearchTest extends TestCase
         $this->app['config']->set('table.theme', 'tailwind');
 
         $view = $this
-            ->template('<x-table::global-search/>');
+            ->template('<x-table-global-search/>');
 
         $view
             ->assertRender('
@@ -35,7 +35,7 @@ class GlobalSearchTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::global-search/>');
+            ->template('<x-table-global-search/>');
 
         $view
             ->assertRender('
@@ -58,7 +58,7 @@ class GlobalSearchTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::global-search/>');
+            ->template('<x-table-global-search/>');
 
         $view
             ->assertRender('

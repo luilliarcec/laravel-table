@@ -13,7 +13,7 @@ class DateTest extends TestCase
         $this->app['config']->set('table.theme', 'tailwind');
 
         $view = $this
-            ->template('<x-table::filters.date :filter="$filter"/>')
+            ->template('<x-table-filters.date :filter="$filter"/>')
             ->withData('filter', Filter::build('name', 'Name', Filter::DATE));
 
         $view
@@ -33,7 +33,7 @@ class DateTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::filters.date :filter="$filter"/>')
+            ->template('<x-table-filters.date :filter="$filter"/>')
             ->withData('filter', Filter::build('name', 'Name', Filter::DATE));
 
         $view
@@ -53,7 +53,7 @@ class DateTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::filters.date :filter="$filter"/>')
+            ->template('<x-table-filters.date :filter="$filter"/>')
             ->withData('filter', Filter::build('name', 'Name', Filter::DATE));
 
         $view

@@ -13,7 +13,7 @@ class SelectTest extends TestCase
         $this->app['config']->set('table.theme', 'tailwind');
 
         $view = $this
-            ->template('<x-table::filters.select :filter="$filter"/>')
+            ->template('<x-table-filters.select :filter="$filter"/>')
             ->withData(
                 'filter',
                 Filter::build('languages', 'Languages', Filter::SELECT, [
@@ -41,7 +41,7 @@ class SelectTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::filters.select :filter="$filter"/>')
+            ->template('<x-table-filters.select :filter="$filter"/>')
             ->withData(
                 'filter',
                 Filter::build('languages', 'Languages', Filter::SELECT, [
@@ -69,7 +69,7 @@ class SelectTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::filters.select :filter="$filter"/>')
+            ->template('<x-table-filters.select :filter="$filter"/>')
             ->withData(
                 'filter',
                 Filter::build('languages', 'Languages', Filter::SELECT, [

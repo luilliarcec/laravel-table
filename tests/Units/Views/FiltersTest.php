@@ -13,7 +13,7 @@ class FiltersTest extends TestCase
         $this->app['config']->set('table.theme', 'tailwind');
 
         $view = $this
-            ->template('<x-table::filters :filters="$filters"/>')
+            ->template('<x-table-filters :filters="$filters"/>')
             ->withData('filters', [
                 Filter::build('name', 'Name', Filter::TEXT),
                 Filter::build('created_at', 'Created At', Filter::DATE),
@@ -65,7 +65,7 @@ class FiltersTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::filters :filters="$filters"/>')
+            ->template('<x-table-filters :filters="$filters"/>')
             ->withData('filters', [
                 Filter::build('name', 'Name', Filter::TEXT),
                 Filter::build('created_at', 'Created At', Filter::DATE),
@@ -120,7 +120,7 @@ class FiltersTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::filters :filters="$filters"/>')
+            ->template('<x-table-filters :filters="$filters"/>')
             ->withData('filters', [
                 Filter::build('name', 'Name', Filter::TEXT),
                 Filter::build('created_at', 'Created At', Filter::DATE),

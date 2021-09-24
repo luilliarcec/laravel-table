@@ -12,7 +12,7 @@ class ThTest extends TestCase
         $this->app['config']->set('table.theme', 'tailwind');
 
         $view = $this
-            ->template('<x-table::th :column-key="$key">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view
@@ -30,7 +30,7 @@ class ThTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap4');
 
         $view = $this
-            ->template('<x-table::th :column-key="$key">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view
@@ -43,7 +43,7 @@ class ThTest extends TestCase
         $this->app['config']->set('table.theme', 'bootstrap5');
 
         $view = $this
-            ->template('<x-table::th :column-key="$key">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view
@@ -54,7 +54,7 @@ class ThTest extends TestCase
     public function render_sortable_component()
     {
         $view = $this
-            ->template('<x-table::th :column-key="$key" :sortable="true">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key" :sortable="true">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view
@@ -71,7 +71,7 @@ class ThTest extends TestCase
         $this->get('/?sort=name');
 
         $view = $this
-            ->template('<x-table::th :column-key="$key" :sortable="true">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key" :sortable="true">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view
@@ -88,7 +88,7 @@ class ThTest extends TestCase
         $this->get('/?sort=-name');
 
         $view = $this
-            ->template('<x-table::th :column-key="$key" :sortable="true">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key" :sortable="true">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view
@@ -105,7 +105,7 @@ class ThTest extends TestCase
         $this->get('/?columns[]=name');
 
         $view = $this
-            ->template('<x-table::th :column-key="$key" :sortable="true">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key" :sortable="true">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view->assertRender('
@@ -128,7 +128,7 @@ class ThTest extends TestCase
         $this->get('/?columns[]=email');
 
         $view = $this
-            ->template('<x-table::th :column-key="$key" :sortable="true">Name</x-table::th>')
+            ->template('<x-table-th :column-key="$key" :sortable="true">Name</x-table-th>')
             ->withData('key', 'name');
 
         $view->assertRender('');

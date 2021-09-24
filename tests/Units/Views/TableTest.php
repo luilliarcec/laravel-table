@@ -47,7 +47,7 @@ class TableTest extends TestCase
 
         $view = $this
             ->template('
-                <x-table::table :meta="$meta" :table="$table">
+                <x-table-table :meta="$meta" :table="$table">
                     <x-slot name="head">
                         ...
                     </x-slot>
@@ -55,7 +55,7 @@ class TableTest extends TestCase
                     <x-slot name="body">
                         ...
                     </x-slot>
-                </x-table::table>
+                </x-table-table>
             ')
             ->withData([
                 'meta' => new Collection(),
@@ -90,7 +90,7 @@ class TableTest extends TestCase
 
         $view = $this
             ->template('
-                <x-table::table :meta="$meta" :table="$table">
+                <x-table-table :meta="$meta" :table="$table">
                     <x-slot name="head">
                         ...
                     </x-slot>
@@ -98,7 +98,7 @@ class TableTest extends TestCase
                     <x-slot name="body">
                         ...
                     </x-slot>
-                </x-table::table>
+                </x-table-table>
             ')
             ->withData([
                 'meta' => new Collection(),
@@ -127,7 +127,7 @@ class TableTest extends TestCase
 
         $view = $this
             ->template('
-                <x-table::table :meta="$meta" :table="$table">
+                <x-table-table :meta="$meta" :table="$table">
                     <x-slot name="head">
                         ...
                     </x-slot>
@@ -135,7 +135,7 @@ class TableTest extends TestCase
                     <x-slot name="body">
                         ...
                     </x-slot>
-                </x-table::table>
+                </x-table-table>
             ')
             ->withData([
                 'meta' => new Collection(),
@@ -169,7 +169,7 @@ class TableTest extends TestCase
 
         $view = $this
             ->template('
-                <x-table::table :meta="$meta" :table="$table">
+                <x-table-table :meta="$meta" :table="$table">
                     <x-slot name="head">
                         ...
                     </x-slot>
@@ -177,7 +177,7 @@ class TableTest extends TestCase
                     <x-slot name="body">
                         ...
                     </x-slot>
-                </x-table::table>
+                </x-table-table>
             ')
             ->withData([
                 'meta' => new Paginator($data, 1),
@@ -213,7 +213,7 @@ class TableTest extends TestCase
 
         $view = $this
             ->template('
-                <x-table::table :meta="$meta" :table="$table">
+                <x-table-table :meta="$meta" :table="$table">
                     <x-slot name="head">
                         ...
                     </x-slot>
@@ -221,7 +221,7 @@ class TableTest extends TestCase
                     <x-slot name="body">
                         ...
                     </x-slot>
-                </x-table::table>
+                </x-table-table>
             ')
             ->withData([
                 'meta' => new Collection(),
