@@ -36,7 +36,6 @@ class TestCase extends Orchestra
      */
     protected function getEnvironmentSetUp($app)
     {
-        /** Database */
         $app['config']->set('table.theme', 'tailwind');
         $app['config']->set('table.components', [
             // Filters
