@@ -39,9 +39,9 @@ abstract class Field extends Component
     /**
      * Field value.
      *
-     * @return ?string
+     * @return mixed
      */
-    public function value(): ?string
+    public function value()
     {
         return request('filter.' . $this->filter->key);
     }
