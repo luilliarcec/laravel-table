@@ -35,9 +35,36 @@ php artisan vendor:publish --provider="Luilliarcec\LaravelTable\LaravelTableServ
 First configure the theme you are going to use, Bootstrap or Tailwind in your configuration file `config\table.php`.
 
 ```php
+use Luilliarcec\LaravelTable\View\Components;
+
 return [
     /** tailwind  / bootstrap4 / bootstrap5 */
-    'theme' => 'tailwind'
+    'theme' => 'tailwind',
+    
+    'components' => [
+        // Filters
+        Components\Filters\Text::class => 'filters.text',
+        Components\Filters\Date::class => 'filters.date',
+        Components\Filters\DateRange::class => 'filters.date-range',
+        Components\Filters\Checkbox::class => 'filters.checkbox',
+        Components\Filters\Select::class => 'filters.select',
+        Components\Filters\SelectMultiple::class => 'filters.select-multiple',
+
+        // Tables
+        Components\Table::class => 'table',
+        Components\EmptyTable::class => 'empty-table',
+        Components\TableWrapper::class => 'table-wrapper',
+        Components\Td::class => 'td',
+        Components\Th::class => 'th',
+        Components\GlobalSearch::class => 'global-search',
+        Components\Filters::class => 'filters',
+        Components\Columns::class => 'columns',
+        Components\ActionButton::class => 'action-button',
+
+        // Assets
+        Components\Scripts::class => 'scripts',
+        Components\Styles::class => 'styles',
+    ]
 ];
 ```
 
@@ -148,7 +175,7 @@ class UsersController extends Controller
 }
 ```
 
-You must use the `<x-table::th/>` and `<x-table::td/>` components, in fact we recommend the use of these two components
+You must use the `<x-table-th/>` and `<x-table-td/>` components, in fact we recommend the use of these two components
 as a way of design abstraction, even if you are not making use of columns or sort in some of your columns.
 
 ### Blade
@@ -157,73 +184,73 @@ You can use your table with filters in your views as follows.:
 
 ```html
 
-<x-table::styles/>
+<x-table-styles/>
 
 <!-- ... -->
 
-<x-table::table
+<x-table-table
     :meta="$users"
     :table="$table"
 >
     <x-slot name="head">
         <tr>
             <!-- This is a static column that is always displayed -->
-            <x-table::th class="border-gray-200">
+            <x-table-th class="border-gray-200">
                 Id
-            </x-table::th>
+            </x-table-th>
 
             <!-- This is a sortable column that is always displayed -->
-            <x-table::th column-key="name" class="border-gray-200" sortable static>
+            <x-table-th column-key="name" class="border-gray-200" sortable static>
                 Name
-            </x-table::th>
+            </x-table-th>
 
             <!-- This is a conditionally displayable and sortable column -->
-            <x-table::th column-key="email" class="border-gray-200" sortable>
+            <x-table-th column-key="email" class="border-gray-200" sortable>
                 Email
-            </x-table::th>
+            </x-table-th>
 
             <!-- This is a conditionally displayable and sortable column -->
-            <x-table::th column-key="email_verified_at" class="border-gray-200" sortable>
+            <x-table-th column-key="email_verified_at" class="border-gray-200" sortable>
                 Email verified at
-            </x-table::th>
+            </x-table-th>
 
             <!-- This is a conditionally displayable and sortable column -->
-            <x-table::th column-key="created_at" class="border-gray-200" sortable>
+            <x-table-th column-key="created_at" class="border-gray-200" sortable>
                 Created at
-            </x-table::th>
+            </x-table-th>
         </tr>
     </x-slot>
 
     <x-slot name="body">
         @foreach($users as $user)
         <tr>
-            <x-table::th scope="row">
+            <x-table-th scope="row">
                 {{ $user->id }}
-            </x-table::th>
+            </x-table-th>
 
-            <x-table::td>
+            <x-table-td>
                 {{ $user->name }}
-            </x-table::td>
+            </x-table-td>
 
-            <x-table::td column-key="email">
+            <x-table-td column-key="email">
                 {{ $user->email }}
-            </x-table::td>
+            </x-table-td>
 
-            <x-table::td column-key="email_verified_at">
+            <x-table-td column-key="email_verified_at">
                 {{ $user->email_verified_at }}
-            </x-table::td>
+            </x-table-td>
 
-            <x-table::td column-key="created_at">
+            <x-table-td column-key="created_at">
                 {{ $user->created_at }}
-            </x-table::td>
+            </x-table-td>
         </tr>
         @endforeach
     </x-slot>
-</x-table::table>
+</x-table-table>
 
 <!-- ... -->
 
-<x-table::scripts/>
+<x-table-scripts/>
 
 <script>
     const dateRanges = document.querySelectorAll('.filter-date-range');
@@ -243,9 +270,9 @@ neutral.
 
 ```html
 
-<x-table:styles/>
+<x-table-styles/>
 ...
-<x-table:scripts/>
+<x-table-scripts/>
 ```
 
 If you noticed, I added the flatpickr plugin to my component making use of the `.filter-date-range` css class exposed in
