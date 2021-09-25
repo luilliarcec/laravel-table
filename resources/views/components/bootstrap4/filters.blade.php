@@ -31,6 +31,8 @@
                                 <x-table-filters.checkbox :filter="$filter"/>
                             @elseif($filter->type === \Luilliarcec\LaravelTable\Support\Filter::SELECT_MULTIPLE)
                                 <x-table-filters.select-multiple :filter="$filter"/>
+                            @else
+                                <x-dynamic-component :component="$filter->type"/>
                             @endif
                         </div>
                     </div>
