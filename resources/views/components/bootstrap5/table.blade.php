@@ -46,17 +46,21 @@
     </form>
 
     <x-table-table-wrapper>
-        <table class="table table-hover">
-            <thead>
-            {{ $head }}
-            </thead>
-            <tbody>
-            {{ $body }}
-            </tbody>
-        </table>
+        @if($slot->isNotEmpty())
+            {{ $slot }}
+        @else
+            <table class="table table-hover">
+                <thead>
+                {{ $head }}
+                </thead>
+                <tbody>
+                {{ $body }}
+                </tbody>
+            </table>
 
-        @if (method_exists($meta, 'links'))
-            {{ $meta->links() }}
+            @if (method_exists($meta, 'links'))
+                {{ $meta->links() }}
+            @endif
         @endif
     </x-table-table-wrapper>
 </div>

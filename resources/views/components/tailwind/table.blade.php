@@ -50,18 +50,22 @@
     </form>
 
     <x-table-table-wrapper>
-        <table class="min-w-full divide-y divide-gray-200 bg-white">
-            <thead class="bg-gray-100">
-            {{ $head }}
-            </thead>
+        @if($slot->isNotEmpty())
+            {{ $slot }}
+        @else
+            <table class="min-w-full divide-y divide-gray-200 bg-white">
+                <thead class="bg-gray-100">
+                {{ $head }}
+                </thead>
 
-            <tbody class="bg-white divide-y divide-gray-200">
-            {{ $body }}
-            </tbody>
-        </table>
+                <tbody class="bg-white divide-y divide-gray-200">
+                {{ $body }}
+                </tbody>
+            </table>
 
-        @if (method_exists($meta, 'links'))
-            {{ $meta->links() }}
+            @if (method_exists($meta, 'links'))
+                {{ $meta->links() }}
+            @endif
         @endif
     </x-table-table-wrapper>
 </div>
