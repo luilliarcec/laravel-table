@@ -43,7 +43,7 @@ abstract class Field extends Component
      */
     public function value()
     {
-        return request('filter.' . $this->filter->key);
+        return request()->get('filter')[$this->filter->key] ?? null;
     }
 
     /**

@@ -33,7 +33,7 @@ class Filter
         $this->label = $label;
         $this->type = $type;
         $this->options = $options;
-        $this->value = request('filter.' . $key);
+        $this->value = request()->get('filter')[$key] ?? null;
 
         if (in_array($type, [self::TEXT, self::DATE, self::DATE_RANGE])) {
             $this->options = [];
