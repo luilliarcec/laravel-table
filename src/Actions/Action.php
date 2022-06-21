@@ -16,6 +16,7 @@ class Action extends Component implements Htmlable
     use Concerns\CanOpenUrl;
     use Concerns\HasView;
     use Concerns\HasName;
+    use Concerns\HasLabel;
 
     protected string $view = 'tables::components.actions.action';
 
