@@ -18,6 +18,8 @@ class Action extends Component implements Htmlable
     use Concerns\HasView;
     use Concerns\HasName;
     use Concerns\HasLabel;
+    use Concerns\HasColor;
+    use Concerns\HasIcon;
 
     protected string $view = 'tables::components.actions.action';
 
