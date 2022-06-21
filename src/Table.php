@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class Table extends Component implements Htmlable
 {
     use Concerns\HasName;
+    use Concerns\HasRecords;
 
     final public function __construct(string $name)
     {
