@@ -11,6 +11,7 @@ class Table extends Component implements Htmlable
     use Concerns\HasName;
     use Concerns\HasRecords;
     use Concerns\HasPagination;
+    use Concerns\HasEmptyState;
 
     final public function __construct(string $name)
     {

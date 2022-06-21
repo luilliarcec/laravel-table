@@ -20,7 +20,15 @@
         @if ($records->count())
             Table
         @else
-            Table empty
+            <x-tables::table.empty :icon="$getEmptyStateIcon()" :actions="$getEmptyStateActions()">
+                <x-slot name="heading">
+                    {{ $getEmptyStateHeading() }}
+                </x-slot>
+
+                <x-slot name="description">
+                    {{ $getEmptyStateDescription() }}
+                </x-slot>
+            </x-tables::table.empty>
         @endif
     </div>
 
