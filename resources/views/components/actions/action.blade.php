@@ -5,6 +5,7 @@
     :disabled="$isDisabled()"
     :color="$getColor()"
     :icon="$getIcon()"
+    :dark-mode="config('tables.dark_mode')"
     class="text-sm font-medium"
 >
     {{ $getLabel() }}
