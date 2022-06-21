@@ -4,6 +4,7 @@
     'disabled' => false,
     'color' => 'primary',
     'outlined' => false,
+    'size' => 'md',
     'icon' => null,
     'iconPosition' => 'before',
     'tooltip' => null,
@@ -14,6 +15,8 @@
     $linkClasses = [
         'inline-flex items-center justify-center hover:underline focus:outline-none focus:underline',
         'opacity-70 cursor-not-allowed' => $disabled,
+        'text-sm' => $size === 'sm',
+        'text-lg' => $size === 'lg',
         'text-primary-600 hover:text-primary-500' => $color === 'primary',
         'text-danger-600 hover:text-danger-500' => $color === 'danger',
         'text-gray-600 hover:text-gray-500' => $color === 'secondary',
@@ -30,6 +33,9 @@
         'inline-flex items-center justify-center gap-1 font-medium rounded-lg border transition-colors focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-inset filament-button',
         'dark:focus:ring-offset-0' => $darkMode,
         'opacity-70 cursor-not-allowed pointer-events-none' => $disabled,
+        'h-9 px-4 text-sm' => $size === 'md',
+        'h-8 px-3 text-sm' => $size === 'sm',
+        'h-11 px-6 text-lg' => $size === 'lg',
     ], $outlined ? [
         'shadow focus:ring-white' => $color !== 'secondary',
         'text-primary-600 border-primary-600 hover:bg-primary-600/20 focus:bg-primary-700/20 focus:ring-offset-primary-700' => $color === 'primary',
@@ -56,9 +62,18 @@
     ]);
 
     $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-        'w-4 h-4',
+        'w-3 h-3' => $size === 'sm',
+        'w-4 h-4' => $size === 'md',
+        'w-5 h-5' => $size === 'lg',
         'mr-1 -ml-2 rtl:ml-1 rtl:-mr-2' => $iconPosition === 'before',
-        'ml-1 -mr-2 rtl:mr-1 rtl:-ml-2' => $iconPosition === 'after'
+        'ml-1 -mr-2 rtl:mr-1 rtl:-ml-2' => $iconPosition === 'after',
+
+        // 'mr-1 -ml-2 rtl:ml-1 rtl:-mr-2' => ($iconPosition === 'before') && ($size === 'md'),
+        // 'mr-2 -ml-3 rtl:ml-2 rtl:-mr-3' => ($iconPosition === 'before') && ($size === 'lg'),
+        // 'mr-1 -ml-1.5 rtl:ml-1 rtl:-mr-1.5' => ($iconPosition === 'before') && ($size === 'sm'),
+        // 'ml-1 -mr-2 rtl:mr-1 rtl:-ml-2' => ($iconPosition === 'after') && ($size === 'md'),
+        // 'ml-2 -mr-3 rtl:mr-2 rtl:-ml-3' => ($iconPosition === 'after') && ($size === 'lg'),
+        // 'ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5' => ($iconPosition === 'after') && ($size === 'sm'),
     ]);
 @endphp
 
