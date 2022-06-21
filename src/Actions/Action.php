@@ -15,11 +15,13 @@ class Action extends Component implements Htmlable
     use Concerns\EvaluatesClosures;
     use Concerns\CanOpenUrl;
     use Concerns\CanBeDisabled;
+    use Concerns\CanBeOutlined;
     use Concerns\HasView;
     use Concerns\HasName;
     use Concerns\HasLabel;
     use Concerns\HasColor;
     use Concerns\HasIcon;
+    use Concerns\HasSize;
 
     protected string $view = 'tables::components.actions.action';
 
