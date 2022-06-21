@@ -19,7 +19,9 @@
     ],
     "require": {
         "php": "^8.0",
-        "laravel/framework": "^9.0"
+        "laravel/framework": "^9.0",
+        "spatie/laravel-package-tools": "^1.11",
+        "spatie/laravel-query-builder": "^5.0"
     },
     "require-dev": {
         "orchestra/testbench": "^7.0",
