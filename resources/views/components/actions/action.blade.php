@@ -3,6 +3,8 @@
     :href="$isEnabled() ? $getUrl() : null"
     :target="$shouldOpenUrlInNewTab() ? '_blank' : null"
     :disabled="$isDisabled()"
+    :color="$getColor()"
+    :icon="$getIcon()"
     class="text-sm font-medium"
 >
     {{ $getLabel() }}
