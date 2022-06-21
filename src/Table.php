@@ -10,6 +10,7 @@ class Table extends Component implements Htmlable
 {
     use Concerns\HasName;
     use Concerns\HasRecords;
+    use Concerns\HasPagination;
 
     final public function __construct(string $name)
     {
