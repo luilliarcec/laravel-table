@@ -17,7 +17,7 @@ class Action extends Component implements Htmlable
     use Concerns\HasView;
     use Concerns\HasName;
 
-    protected string $view = 'tables::actions.link';
+    protected string $view = 'tables::components.actions.action';
 
     final public function __construct(string $name)
     {
