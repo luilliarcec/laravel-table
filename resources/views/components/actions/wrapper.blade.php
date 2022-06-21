@@ -1,5 +1,5 @@
 @props([
-    'tag' => 'button',
+    'tag' => 'a',
     'type' => 'button',
     'disabled' => false,
     'color' => 'primary',
