@@ -2,41 +2,17 @@
 
 namespace Luilliarcec\LaravelTable;
 
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
-use Luilliarcec\LaravelTable\Support\BladeTable;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class LaravelTableServiceProvider extends ServiceProvider
+class LaravelTableServiceProvider extends PackageServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
-    public function boot()
+    public function configurePackage(Package $package): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'table');
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('table.php'),
-            ], 'config');
-
-            $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/table'),
-            ], 'views');
-        }
-
-        Blade::components(config('table.components'), 'table');
-    }
-
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'table');
-
-        $this->app->singleton('Table', function () {
-            return new BladeTable;
-        });
+        $package
+            ->name('tables')
+            ->hasConfigFile('tables')
+            ->hasTranslations()
+            ->hasViews('tables');
     }
 }
