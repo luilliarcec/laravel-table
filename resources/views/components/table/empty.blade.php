@@ -51,7 +51,7 @@
         @endif
     </div>
 
-{{--    @if ($actions)--}}
-{{--        <x-tables::actions :actions="$actions" class="justify-center"/>--}}
-{{--    @endif--}}
+    @if ($actions)
+        <x-tables::table.actions :actions="$actions" class="justify-center"/>
+    @endif
 </div>
