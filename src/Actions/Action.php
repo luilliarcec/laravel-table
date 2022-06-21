@@ -15,6 +15,24 @@ class Action extends Component implements Htmlable
     use Concerns\EvaluatesClosures;
     use Concerns\CanOpenUrl;
     use Concerns\HasView;
+    use Concerns\HasName;
+
+    final public function __construct(string $name)
+    {
+        $this->name($name);
+    }
+
+    public static function make(string $name): static
+    {
+        $static = app(static::class, ['name' => $name]);
+        $static->setUp();
+
+        return $static;
+    }
+
+    protected function setUp(): void
+    {
+    }
 
     public function toHtml(): string
     {
