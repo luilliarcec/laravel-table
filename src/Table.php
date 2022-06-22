@@ -8,10 +8,12 @@ use Illuminate\View\Component;
 
 class Table extends Component implements Htmlable
 {
+    use Concerns\HasHeader;
     use Concerns\HasName;
     use Concerns\HasRecords;
     use Concerns\HasPagination;
     use Concerns\HasEmptyState;
+    use Concerns\HasFilters;
 
     final public function __construct(string $name)
     {
