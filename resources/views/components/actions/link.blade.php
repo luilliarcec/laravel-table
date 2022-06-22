@@ -2,6 +2,7 @@
     $tag = $getUrl() ? 'a' : 'button';
     $type = 'button';
     $href = $isEnabled() ? $getUrl() : null;
+    $target = $shouldOpenUrlInNewTab() ? '_blank' : null;
     $color = $getColor() ?: 'primary';
     $size = $getSize() ?: 'sm';
     $icon = $getIcon();
@@ -46,6 +47,10 @@
 
         @if($href)
             href="{{ $href }}"
+        @endif
+
+        @if($target)
+            target="{{ $target }}"
         @endif
         {{ $attributes->class($linkClasses) }}
     >
