@@ -1,17 +1,16 @@
-@props([
-    'tag' => 'a',
-    'type' => 'button',
-    'disabled' => false,
-    'color' => 'primary',
-    'outlined' => false,
-    'size' => 'md',
-    'icon' => null,
-    'iconPosition' => 'before',
-    'tooltip' => null,
-    'darkMode' => false
-])
-
 @php
+    $tag = $getUrl() ? 'a' : 'button';
+    $type = 'button';
+    $href = $isEnabled() ? $getUrl() : null;
+    $color = $getColor() ?: 'primary';
+    $size = $getSize() ?: 'sm';
+    $icon = $getIcon();
+    $iconPosition = $getIconPosition() ?: 'before';
+    $tooltip = $getTooltip();
+    $disabled = $isDisabled();
+    $outlined = $isOutlined();
+    $darkMode = config('tables.dark_mode');
+
     $linkClasses = [
         'inline-flex items-center justify-center hover:underline focus:outline-none focus:underline',
         'opacity-70 cursor-not-allowed' => $disabled,
@@ -44,13 +43,17 @@
             x-data="{}"
             x-tooltip.raw="{{ $tooltip }}"
         @endif
+
+        @if($href)
+            href="{{ $href }}"
+        @endif
         {{ $attributes->class($linkClasses) }}
     >
         @if ($icon && $iconPosition === 'before')
             <x-dynamic-component :component="$icon" :class="$iconClasses"/>
         @endif
 
-        {{ $slot }}
+        {{ $getLabel() }}
 
         @if ($icon && $iconPosition === 'after')
             <x-dynamic-component :component="$icon" :class="$iconClasses"/>
@@ -70,7 +73,7 @@
             <x-dynamic-component :component="$icon" :class="$iconClasses"/>
         @endif
 
-        {{ $slot }}
+        {{ $getLabel() }}
 
         @if ($icon && $iconPosition === 'after')
             <x-dynamic-component :component="$icon" :class="$iconClasses"/>
