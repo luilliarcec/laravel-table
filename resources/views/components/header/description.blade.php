@@ -1,3 +1,3 @@
-<p {{ $attributes->class(['text-gray-900 blade-tables-header-description']) }}>
+<p {{ $attributes->class(['text-gray-900']) }}>
     {{ $slot }}
 </p>
