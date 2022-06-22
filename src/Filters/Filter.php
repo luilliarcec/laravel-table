@@ -17,6 +17,37 @@ class Filter extends Component implements Htmlable
     use Concerns\HasName;
     use Concerns\HasLabel;
 
+    protected string $filter;
+
+    final public function __construct(string $name)
+    {
+        $this->name($name);
+
+        $this->filter = config('query-builder.parameters.filter');
+    }
+
+    public static function make(string $name): static
+    {
+        $static = app(static::class, ['name' => $name]);
+        $static->setUp();
+
+        return $static;
+    }
+
+    protected function setUp(): void
+    {
+    }
+
+    public function getValue(): ?string
+    {
+        return request($this->filter.'.'.$this->getName());
+    }
+
+    public function getFilterName(): string
+    {
+        return sprintf('%s[%s]', $this->filter, $this->getName());
+    }
+
     public function toHtml(): string
     {
         return $this->render()->render();
