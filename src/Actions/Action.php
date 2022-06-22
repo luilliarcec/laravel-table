@@ -22,8 +22,23 @@ class Action extends Component implements Htmlable
     use Concerns\HasColor;
     use Concerns\HasIcon;
     use Concerns\HasSize;
+    use Concerns\HasTooltip;
 
     protected string $view = 'tables::components.actions.action';
+
+    public function button(): static
+    {
+        $this->view('tables::components.actions.button');
+
+        return $this;
+    }
+
+    public function link(): static
+    {
+        $this->view('tables::components.actions.link');
+
+        return $this;
+    }
 
     final public function __construct(string $name)
     {
