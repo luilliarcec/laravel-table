@@ -24,18 +24,18 @@ class Action extends Component implements Htmlable
     use Concerns\HasSize;
     use Concerns\HasTooltip;
 
-    protected string $view = 'tables::components.actions.action';
+    protected string $view = 'tables::actions.link';
 
     public function button(): static
     {
-        $this->view('tables::components.actions.button');
+        $this->view('tables::actions.button');
 
         return $this;
     }
 
     public function link(): static
     {
-        $this->view('tables::components.actions.link');
+        $this->view('tables::actions.link');
 
         return $this;
     }
