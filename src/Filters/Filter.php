@@ -18,6 +18,8 @@ class Filter extends Component implements Htmlable
     use Concerns\HasId;
     use Concerns\HasName;
     use Concerns\HasLabel;
+    use Concerns\HasHelperText;
+    use Concerns\HasHint;
 
     protected string $filter;
 
