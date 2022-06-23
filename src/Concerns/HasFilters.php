@@ -16,6 +16,10 @@ trait HasFilters
 
     public function getFilters(): array
     {
+        foreach ($this->filters as $filter) {
+            $filter->table($this);
+        }
+
         return $this->filters;
     }
 
