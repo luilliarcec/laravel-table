@@ -9,7 +9,7 @@
 <div class="flex justify-between items-center flex-1 lg:hidden">
     <div class="w-10">
         @if (!$paginator->onFirstPage())
-            <x-tables::icon-button
+            <x-components::icon-button
                 tag="a"
                 :href="$paginator->previousPageUrl()"
                 rel="prev"
@@ -27,7 +27,7 @@
 
     <div class="w-10">
         @if ($paginator->hasMorePages())
-            <x-tables::icon-button
+            <x-components::icon-button
                 tag="a"
                 :href="$paginator->nextPageUrl()"
                 rel="next"
