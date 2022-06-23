@@ -3,6 +3,7 @@
 namespace Luilliarcec\LaravelTable\Filters\Concerns;
 
 use Closure;
+use Illuminate\Support\Str;
 
 trait HasId
 {
@@ -17,6 +18,10 @@ trait HasId
 
     public function getId(): ?string
     {
-        return $this->evaluate($this->id);
+        return $this->evaluate($this->id) ?? sprintf('%s-%s-%s',
+                $this->getTable()->getName(),
+                $this->getName(),
+                Str::lower(Str::random(4))
+            );
     }
 }

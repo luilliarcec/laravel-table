@@ -12,6 +12,7 @@ class Filter extends Component implements Htmlable
     use Traits\Conditionable;
     use Traits\Macroable;
     use Traits\Tappable;
+    use Concerns\BelongToTable;
     use Concerns\EvaluatesClosures;
     use Concerns\HasView;
     use Concerns\HasId;
