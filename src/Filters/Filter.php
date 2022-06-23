@@ -14,6 +14,7 @@ class Filter extends Component implements Htmlable
     use Traits\Tappable;
     use Concerns\BelongToTable;
     use Concerns\EvaluatesClosures;
+    use Concerns\HasExtraAttributes;
     use Concerns\HasView;
     use Concerns\HasId;
     use Concerns\HasName;
