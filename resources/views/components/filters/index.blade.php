@@ -50,6 +50,7 @@
                 x-on:click="isOpen = ! isOpen"
                 color="secondary"
                 {{ $attributes->class(['absolute top-3 right-3 rtl:right-auto rtl:left-3']) }}
+                :dark-mode="config('tables.dark_mode')"
             />
 
             @foreach($filters as $filter)

@@ -15,6 +15,7 @@
                 rel="prev"
                 :icon="$previousArrowIcon"
                 :label="__('tables::table.pagination.buttons.previous.label')"
+                :dark-mode="config('tables.dark_mode')"
             />
         @endif
     </div>
@@ -33,6 +34,7 @@
                 rel="next"
                 :icon="$nextArrowIcon"
                 :label="__('tables::table.pagination.buttons.next.label')"
+                :dark-mode="config('tables.dark_mode')"
             />
         @endif
     </div>
