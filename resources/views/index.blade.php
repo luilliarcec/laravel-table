@@ -9,7 +9,7 @@
     $hasPagination = $isPaginationEnabled();
 
     $hasFilters = $isFilterable();
-    $isSearchVisible = false;
+    $hasInputSearch = $isSearchable();
 
     $header = $getHeader();
     $heading = $getHeading();
@@ -36,13 +36,13 @@
                 </div>
             @endif
 
-            @if($isSearchVisible || $hasFilters)
+            @if($hasInputSearch || $hasFilters)
                 <div class="flex items-center justify-between p-2 h-14">
                     <div></div>
 
-                    @if ($isSearchVisible || $hasFilters)
+                    @if ($hasInputSearch || $hasFilters)
                         <div class="w-full flex items-center justify-end gap-2 md:max-w-md">
-                            @if ($isSearchVisible)
+                            @if ($hasInputSearch)
                                 <div class="flex-1">
                                     <x-tables::search-input
                                         :table-name="$tableName"
