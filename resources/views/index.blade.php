@@ -7,9 +7,63 @@
     $records = $getRecords();
 
     $hasPagination = $isPaginationEnabled();
+
+    $hasFilters = $isFilterable();
+    $isSearchVisible = false;
+
+    $header = $getHeader();
+    $heading = $getHeading();
+    $headerActions = $getHeaderActions();
+    $isHeaderVisible = ($header || $heading || $headerActions || $hasFilters);
 @endphp
 
 <x-tables::table.container :table-name="$tableName">
+    @if($isHeaderVisible)
+        <div>
+            @if ($header)
+                {{ $header }}
+            @elseif ($heading || $headerActions)
+                <div class="px-2 pt-2 space-y-2">
+                    <x-tables::header :actions="$headerActions">
+                        <x-slot name="heading">
+                            {{ $heading }}
+                        </x-slot>
+
+                        <x-slot name="description">
+                            {{ $getDescription() }}
+                        </x-slot>
+                    </x-tables::header>
+                </div>
+            @endif
+
+            @if($isSearchVisible || $hasFilters)
+                <div class="flex items-center justify-between p-2 h-14">
+                    <div></div>
+
+                    @if ($isSearchVisible || $hasFilters)
+                        <div class="w-full flex items-center justify-end gap-2 md:max-w-md">
+                            @if ($isSearchVisible)
+                                <div class="flex-1">
+                                    <x-tables::search-input
+                                        :table-name="$tableName"
+                                    />
+                                </div>
+                            @endif
+
+                            @if ($hasFilters)
+                                <x-tables::filters
+                                    :filters="$getFilters()"
+                                    :width="$getFiltersFormWidth()"
+                                    class="shrink-0"
+                                />
+                            @endif
+                        </div>
+                    @endif
+                </div>
+            @endif
+        </div>
+    @endif
+
     <div
         @class([
             'overflow-y-auto relative',
