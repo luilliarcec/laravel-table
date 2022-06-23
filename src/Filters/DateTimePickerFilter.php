@@ -5,23 +5,51 @@ namespace Luilliarcec\LaravelTable\Filters;
 use Closure;
 use Luilliarcec\LaravelTable\Filters\Plugins\Flatpickr;
 
-class DatetimePickerFilter extends Filter
+class DateTimePickerFilter extends Filter
 {
     protected string $view = 'tables::filters.datetime-picker';
 
-    protected string|Closure|null $type = null;
+    protected string|null $type = 'date';
     protected ?Closure $configureFlatpickrUsing = null;
 
-    public function type(string|Closure|null $type): static
+    public function getType(): string
     {
-        $this->type = $type;
+        return $this->type;
+    }
+
+    public function date(): static
+    {
+        $this->type = 'date';
 
         return $this;
     }
 
-    public function getType(): string
+    public function time(): static
     {
-        return $this->evaluate($this->type) ?? 'text';
+        $this->type = 'time';
+
+        return $this;
+    }
+
+    public function datetime(): static
+    {
+        $this->type = 'datetime-local';
+
+        return $this;
+    }
+
+    public function month(): static
+    {
+        $this->type = 'month';
+
+        return $this;
+    }
+
+    public function week(): static
+    {
+        $this->type = 'week';
+
+        return $this;
     }
 
     public function flatpickr(?Closure $configuration): static
