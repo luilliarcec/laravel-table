@@ -1,6 +1,7 @@
 @props([
     'id',
     'label' => null,
+    'labelSrOnly' => false,
     'labelPrefix' => null,
     'labelSuffix' => null,
     'helperText' => null,
@@ -9,8 +10,14 @@
 ])
 
 <div>
+    @if ($label && $labelSrOnly)
+        <label for="{{ $id }}" class="sr-only">
+            {{ $label }}
+        </label>
+    @endif
+
     <div class="space-y-2">
-        @if($label || $labelPrefix || $labelSuffix || $hint)
+        @if(($label && (! $labelSrOnly)) || $labelPrefix || $labelSuffix || $hint)
             <div class="flex items-center justify-between space-x-2 rtl:space-x-reverse">
                 @if ($label)
                     <x-tables::fields.label
