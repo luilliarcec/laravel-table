@@ -21,6 +21,7 @@ class Filter extends Component implements Htmlable
     use Concerns\HasId;
     use Concerns\HasName;
     use Concerns\HasLabel;
+    use Concerns\HasPlaceholder;
     use Concerns\HasHelperText;
     use Concerns\HasHint;
 
