@@ -1,9 +1,10 @@
 @php
     $tableName = $getName();
 
-    /**
-     * @var \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\Paginator $records
-     */
+    /** @var \Illuminate\Support\Collection|\Luilliarcec\LaravelTable\Columns\Column[] $columns */
+    $columns = $getColumns();
+
+    /**  @var \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\Paginator $records */
     $records = $getRecords();
 
     $hasPagination = $isPaginationEnabled();
@@ -15,6 +16,30 @@
     $heading = $getHeading();
     $headerActions = $getHeaderActions();
     $isHeaderVisible = ($header || $heading || $headerActions || $hasFilters);
+
+    $getHiddenClasses = function (\Luilliarcec\LaravelTable\Columns\Column $column): ?string {
+        if ($breakpoint = $column->getHiddenFrom()) {
+            return match ($breakpoint) {
+                'sm' => 'sm:hidden',
+                'md' => 'md:hidden',
+                'lg' => 'lg:hidden',
+                'xl' => 'xl:hidden',
+                '2xl' => '2xl:hidden',
+            };
+        }
+
+        if ($breakpoint = $column->getVisibleFrom()) {
+            return match ($breakpoint) {
+                'sm' => 'hidden sm:table-cell',
+                'md' => 'hidden md:table-cell',
+                'lg' => 'hidden lg:table-cell',
+                'xl' => 'hidden xl:table-cell',
+                '2xl' => 'hidden 2xl:table-cell',
+            };
+        }
+
+        return null;
+    };
 @endphp
 
 <x-tables::table.container :table-name="$tableName">
@@ -74,7 +99,14 @@
         @if ($records->count())
             <x-tables::table>
                 <x-slot:header>
-                    WIP
+                    @foreach($columns as $column)
+                        <x-tables::table.th
+                            :name="$column->getName()"
+                            :class="$getHiddenClasses($column)"
+                        >
+                            {{ $column->getLabel() }}
+                        </x-tables::table.th>
+                    @endforeach
                 </x-slot:header>
             </x-tables::table>
         @else
