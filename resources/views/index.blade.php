@@ -91,9 +91,11 @@
 
     <div
         @class([
-            'overflow-y-auto relative',
+            'overflow-x-auto relative',
             'dark:border-gray-700' => config('tables.dark_mode'),
+            'rounded-t-xl' => ! $isHeaderVisible,
             'rounded-b-xl' => ! $hasPagination,
+            'border-t' => $isHeaderVisible,
         ])
     >
         @if ($records->count())
