@@ -2,6 +2,7 @@
 
 namespace Luilliarcec\LaravelTable\Columns\Concerns;
 
+use Akaunting\Money;
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Carbon;
