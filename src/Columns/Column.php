@@ -23,6 +23,7 @@ class Column extends Component implements Htmlable
     use Concerns\HasLabel;
     use Concerns\HasAlignment;
     use Concerns\HasRecord;
+    use Concerns\HasState;
 
     final public function __construct(string $name)
     {

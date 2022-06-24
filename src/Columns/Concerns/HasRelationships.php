@@ -2,6 +2,7 @@
 
 namespace Luilliarcec\LaravelTable\Columns\Concerns;
 
+use Illuminate\Database\Eloquent\Relations;
 use Illuminate\Support\Str;
 
 trait HasRelationships
@@ -19,5 +20,13 @@ trait HasRelationships
     protected function getRelationshipName(): string
     {
         return (string) Str::of($this->getName())->beforeLast('.');
+    }
+
+    protected function isAValidRelationship($relationship): bool
+    {
+        return
+            $relationship instanceof Relations\HasMany ||
+            $relationship instanceof Relations\BelongsToMany ||
+            $relationship instanceof Relations\MorphMany;
     }
 }
