@@ -21,7 +21,7 @@
     ]
 @endphp
 
-<th {{ $attributes->merge($extraAttributes)->class(['p-0 blade-tables-header-cell']) }}>
+<th {{ $attributes->merge($extraAttributes)->class(['p-0']) }}>
     @if ($sortable)
         <a href="{{ $sortUrl }}" @class($headerClasses)>
             <span>
