@@ -103,6 +103,9 @@
                         <x-tables::table.th
                             :name="$column->getName()"
                             :class="$getHiddenClasses($column)"
+                            :sortable="$column->isSortable()"
+                            :sort-direction="$column->isSortable() ? $column->getSortDirection() : null"
+                            :sort-url="$column->isSortable() ? $column->getSortUrl() : null"
                         >
                             {{ $column->getLabel() }}
                         </x-tables::table.th>

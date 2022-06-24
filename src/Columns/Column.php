@@ -13,6 +13,7 @@ class Column extends Component implements Htmlable
     use Traits\Macroable;
     use Traits\Tappable;
     use Concerns\EvaluatesClosures;
+    use Concerns\CanBeSortable;
     use Concerns\CanBeHidden;
     use Concerns\HasView;
     use Concerns\HasName;
