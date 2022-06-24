@@ -13,6 +13,8 @@ use Luilliarcec\LaravelTable\Columns\Column;
 trait CanFormatState
 {
     protected ?Closure $formatStateUsing = null;
+    protected string|Closure|null $prefix = null;
+    protected string|Closure|null $suffix = null;
 
     public function date(?string $format = null, ?string $timezone = null): static
     {
@@ -113,6 +115,20 @@ trait CanFormatState
         return $this;
     }
 
+    public function prefix(string|Closure $prefix): static
+    {
+        $this->prefix = $prefix;
+
+        return $this;
+    }
+
+    public function suffix(string|Closure $suffix): static
+    {
+        $this->suffix = $suffix;
+
+        return $this;
+    }
+
     public function getFormattedState()
     {
         $state = $this->getState();
@@ -121,6 +137,14 @@ trait CanFormatState
             $state = $this->evaluate($this->formatStateUsing, [
                 'state' => $state,
             ]);
+        }
+
+        if ($this->prefix) {
+            $state = $this->evaluate($this->prefix).$state;
+        }
+
+        if ($this->suffix) {
+            $state = $state.$this->evaluate($this->suffix);
         }
 
         return $state;
