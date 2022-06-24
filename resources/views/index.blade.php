@@ -125,6 +125,7 @@
                                 <x-tables::table.td
                                     :name="$column->getName()"
                                     :alignment="$column->getAlignment()"
+                                    :tooltip="$column->getTooltip()"
                                     {{--:record="$record"--}}
                                     {{--:record-action="$getRecordAction()"--}}
                                     {{--:record-url="$getRecordUrl($record)"--}}
