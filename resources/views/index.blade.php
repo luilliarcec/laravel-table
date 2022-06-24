@@ -72,16 +72,20 @@
         ])
     >
         @if ($records->count())
-            Table
+            <x-tables::table>
+                <x-slot:header>
+                    WIP
+                </x-slot:header>
+            </x-tables::table>
         @else
             <x-tables::table.empty :icon="$getEmptyStateIcon()" :actions="$getEmptyStateActions()">
-                <x-slot name="heading">
+                <x-slot:heading>
                     {{ $getEmptyStateHeading() }}
-                </x-slot>
+                </x-slot:heading>
 
-                <x-slot name="description">
+                <x-slot:description>
                     {{ $getEmptyStateDescription() }}
-                </x-slot>
+                </x-slot:description>
             </x-tables::table.empty>
         @endif
     </div>
