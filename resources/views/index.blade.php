@@ -116,9 +116,9 @@
                     @foreach($records as $record)
                         <x-tables::table.row>
                             @foreach ($columns as $column)
-{{--                                @php--}}
-{{--                                    $column->record($record);--}}
-{{--                                @endphp--}}
+                                {{--@php--}}
+                                {{--    $column->record($record);--}}
+                                {{--@endphp--}}
 
                                 <x-tables::table.td
                                     :name="$column->getName()"
@@ -127,8 +127,8 @@
                                     {{--:tooltip="$column->getTooltip()"--}}
                                     {{--:record-action="$getRecordAction()"--}}
                                     {{--:record-url="$getRecordUrl($record)"--}}
-                                    {{--:should-open-url-in-new-tab="$column->shouldOpenUrlInNewTab()"--}}
-                                    {{--:url="$column->getUrl()"--}}
+                                    :should-open-url-in-new-tab="$column->shouldOpenUrlInNewTab()"
+                                    :url="$column->getUrl()"
                                     :class="$getHiddenClasses($column)"
                                 >
                                     {{ $column }}
