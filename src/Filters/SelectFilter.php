@@ -6,6 +6,8 @@ use Closure;
 
 class SelectFilter extends Filter
 {
+    use Concerns\HasOptions;
+
     protected string $view = 'tables::filters.select';
 
     protected string|Closure|null $column = null;
