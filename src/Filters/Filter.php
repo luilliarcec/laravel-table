@@ -25,13 +25,13 @@ class Filter extends Component implements Htmlable
     use Concerns\HasHelperText;
     use Concerns\HasHint;
 
-    protected string $filter;
+    protected string $parameter;
 
     final public function __construct(string $name)
     {
         $this->name($name);
 
-        $this->filter = config('query-builder.parameters.filter');
+        $this->parameter = config('query-builder.parameters.filter');
     }
 
     public static function make(string $name): static
@@ -48,12 +48,12 @@ class Filter extends Component implements Htmlable
 
     public function getValue(): ?string
     {
-        return request($this->filter.'.'.$this->getName());
+        return request($this->parameter.'.'.$this->getName());
     }
 
     public function getFilterName(): string
     {
-        return sprintf('%s[%s]', $this->filter, $this->getName());
+        return sprintf('%s[%s]', $this->parameter, $this->getName());
     }
 
     public function toHtml(): string
