@@ -22,6 +22,7 @@ trait EvaluatesClosures
     {
         return [
             'column' => $this,
+            'record' => $this->getRecord(),
         ];
     }
 }
