@@ -181,6 +181,20 @@ class Flatpickr implements Jsonable
         return $this;
     }
 
+    public function multiple(): static
+    {
+        $this->mode = 'multiple';
+
+        return $this;
+    }
+
+    public function range(): static
+    {
+        $this->mode = 'range';
+
+        return $this;
+    }
+
     protected function getArrayableConfiguration(): array
     {
         $configuration = [];
