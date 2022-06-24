@@ -16,15 +16,17 @@ trait CanFormatState
 
     public function date(?string $format = null, ?string $timezone = null): static
     {
-        $format ??= config('tables.formats.date');
+        $format ??= config('tables.date_format');
 
-        $timezone ??= config('app.timezone');
+        $this->formatStateUsing(static function (Column $column, $state) use ($format, $timezone): ?string {
+            if (blank($state)) {
+                return null;
+            }
 
-        $this->formatStateUsing(
-            fn($state): ?string => $state ? Carbon::parse($state)->setTimezone($timezone)->translatedFormat(
-                $format
-            ) : null
-        );
+            return Carbon::parse($state)
+                ->setTimezone($timezone ?? config('app.timezone'))
+                ->translatedFormat($format);
+        });
 
         return $this;
     }
@@ -34,6 +36,21 @@ trait CanFormatState
         $format ??= config('tables.formats.datetime');
 
         $this->date($format, $timezone);
+
+        return $this;
+    }
+
+    public function since(?string $timezone = null): static
+    {
+        $this->formatStateUsing(static function (Column $column, $state) use ($timezone): ?string {
+            if (blank($state)) {
+                return null;
+            }
+
+            return Carbon::parse($state)
+                ->setTimezone($timezone ?? config('app.timezone'))
+                ->diffForHumans();
+        });
 
         return $this;
     }
