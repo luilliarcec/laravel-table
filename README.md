@@ -257,6 +257,44 @@ Columns\TextColumn::make('description')
     })
 ```
 
+If your column value is HTML, you may render it using `html()`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TextColumn::make('description')->html()
+```
+
+You may also transform a set of known cell values using the `enum()` method:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TextColumn::make('status')->enum([
+    'draft' => 'Draft',
+    'reviewing' => 'Reviewing',
+    'published' => 'Published',
+])
+```
+
+You may instead pass a custom formatting callback to `formatStateUsing()`, which accepts the `$state` of the cell, and
+optionally its `$record`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TextColumn::make('status')
+    ->formatStateUsing(fn (string $state): string => __("statuses.{$state}"))
+```
+
+If you'd like your column's content to wrap if it's too long, you may use the `wrap()` method:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TextColumn::make('description')->wrap()
+```
+
 ## Examples
 
 To visualize the operation of the package together
