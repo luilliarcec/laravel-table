@@ -1,6 +1,5 @@
 # Laravel Table
 
-[![run-tests](https://github.com/luilliarcec/laravel-table/actions/workflows/run-tests.yml/badge.svg)](https://github.com/luilliarcec/laravel-table/actions/workflows/run-tests.yml)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/luilliarcec/laravel-table.svg)](https://packagist.org/packages/luilliarcec/laravel-table)
 [![Total Downloads](https://img.shields.io/packagist/dt/luilliarcec/laravel-table)](https://packagist.org/packages/luilliarcec/laravel-table)
 [![GitHub license](https://img.shields.io/github/license/luilliarcec/laravel-table)](https://github.com/luilliarcec/laravel-table/blob/develop/LICENSE.md)
