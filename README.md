@@ -230,7 +230,32 @@ use Luilliarcec\LaravelTable\Columns;
 Columns\TextColumn::make('price')->money('eur')
 ```
 
+You may `limit()` the length of the cell's value:
 
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TextColumn::make('description')->limit(50)
+```
+
+You may also reuse the value that is being passed to `limit()`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TextColumn::make('description')
+    ->limit(50)
+    ->tooltip(function (Columns\TextColumn $column): ?string {
+        $state = $column->getState();
+    
+        if (strlen($state) <= $column->getLimit()) {
+            return null;
+        }
+        
+        // Only render the tooltip if the column contents exceeds the length limit.
+        return $state;
+    })
+```
 
 ## Examples
 

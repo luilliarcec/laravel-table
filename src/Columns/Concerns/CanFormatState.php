@@ -12,6 +12,7 @@ use Luilliarcec\LaravelTable\Columns\Column;
 
 trait CanFormatState
 {
+    protected ?int $limit = null;
     protected ?Closure $formatStateUsing = null;
     protected string|Closure|null $prefix = null;
     protected string|Closure|null $suffix = null;
@@ -66,6 +67,8 @@ trait CanFormatState
 
     public function limit(int $length = 100, string $end = '...'): static
     {
+        $this->limit = $length;
+
         $this->formatStateUsing(function ($state) use ($length, $end): ?string {
             if (blank($state)) {
                 return null;
@@ -148,5 +151,10 @@ trait CanFormatState
         }
 
         return $state;
+    }
+
+    public function getLimit(): ?int
+    {
+        return $this->limit;
     }
 }
