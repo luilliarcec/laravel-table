@@ -8,14 +8,27 @@ class BooleanColumn extends Column
 {
     protected string $view = 'tables::columns.boolean';
 
+    protected string $type = 'icon';
     protected string|Closure|null $falseColor = null;
-    protected string|Closure|null $falseIcon = null;
+    protected string|Closure|null $falseValue = null;
     protected string|Closure|null $trueColor = null;
-    protected string|Closure|null $trueIcon = null;
+    protected string|Closure|null $trueValue = null;
 
-    public function false(string|Closure|null $icon = null, string|Closure|null $color = null): static
+    public function text(): static
     {
-        $this->falseIcon($icon);
+        $this->type = 'text';
+
+        return $this;
+    }
+
+    public function isTypeText(): bool
+    {
+        return $this->type === 'text';
+    }
+
+    public function false(string|Closure|null $value = null, string|Closure|null $color = null): static
+    {
+        $this->falseValue($value);
         $this->falseColor($color);
 
         return $this;
@@ -28,16 +41,16 @@ class BooleanColumn extends Column
         return $this;
     }
 
-    public function falseIcon(string|Closure|null $icon): static
+    public function falseValue(string|Closure|null $value): static
     {
-        $this->falseIcon = $icon;
+        $this->falseValue = $value;
 
         return $this;
     }
 
-    public function true(string|Closure|null $icon = null, string|Closure|null $color = null): static
+    public function true(string|Closure|null $value = null, string|Closure|null $color = null): static
     {
-        $this->trueIcon($icon);
+        $this->trueValue($value);
         $this->trueColor($color);
 
         return $this;
@@ -50,9 +63,9 @@ class BooleanColumn extends Column
         return $this;
     }
 
-    public function trueIcon(string|Closure|null $icon): static
+    public function trueValue(string|Closure|null $value): static
     {
-        $this->trueIcon = $icon;
+        $this->trueValue = $value;
 
         return $this;
     }
@@ -62,9 +75,9 @@ class BooleanColumn extends Column
         return $this->evaluate($this->falseColor);
     }
 
-    public function getFalseIcon(): ?string
+    public function getFalseValue(): ?string
     {
-        return $this->evaluate($this->falseIcon);
+        return $this->evaluate($this->falseValue);
     }
 
     public function getStateColor(): ?string
@@ -78,7 +91,7 @@ class BooleanColumn extends Column
         return $state ? $this->getTrueColor() : $this->getFalseColor();
     }
 
-    public function getStateIcon(): ?string
+    public function getStateValue(): ?string
     {
         $state = $this->getState();
 
@@ -86,7 +99,7 @@ class BooleanColumn extends Column
             return null;
         }
 
-        return $state ? $this->getTrueIcon() : $this->getFalseIcon();
+        return $state ? $this->getTrueValue() : $this->getFalseValue();
     }
 
     public function getTrueColor(): ?string
@@ -94,8 +107,8 @@ class BooleanColumn extends Column
         return $this->evaluate($this->trueColor);
     }
 
-    public function getTrueIcon(): ?string
+    public function getTrueValue(): ?string
     {
-        return $this->evaluate($this->trueIcon);
+        return $this->evaluate($this->trueValue);
     }
 }

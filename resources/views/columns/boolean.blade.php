@@ -1,6 +1,7 @@
 @php
+    $isText = $isTypeText();
+
     $state = $getState();
-    $stateIcon = $getStateIcon() ?? ($state ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle');
     $stateColor = $getStateColor() ?? ($state ? 'success' : 'danger');
     $stateColor = match ($stateColor) {
         'danger' => 'text-danger-500',
@@ -13,9 +14,15 @@
 
 <div {{ $attributes->merge($getExtraAttributes())->class(['px-4 py-3']) }}>
     @if ($state !== null)
-        <x-dynamic-component
-            :component="$stateIcon"
-            :class="'w-6 h-6' . ' ' . $stateColor"
-        />
+        @if($isText)
+            <span class="{{ $stateColor }}">
+                {{ $getStateValue() ?? ($state ? __('Yes') : __('No')) }}
+            </span>
+        @else
+            <x-dynamic-component
+                :component="$getStateValue() ?? ($state ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle')"
+                :class="'w-6 h-6' . ' ' . $stateColor"
+            />
+        @endif
     @endif
 </div>
