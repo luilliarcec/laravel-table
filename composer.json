@@ -35,11 +35,6 @@
             "Luilliarcec\\LaravelTable\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Luilliarcec\\LaravelTable\\Tests\\": "tests"
-        }
-    },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
