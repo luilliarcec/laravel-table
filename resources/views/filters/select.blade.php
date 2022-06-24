@@ -14,9 +14,9 @@
     :hint-icon="$getHintIcon()"
 >
     <div {{ $attributes->merge($getExtraAttributes())->class(['flex items-center space-x-1 group']) }}>
-        @if ($label = $getPrefixLabel())
+        @if ($prefix = $getPrefixLabel())
             <span @class($sideLabelClasses)>
-                {{ $label }}
+                {{ $prefix }}
             </span>
         @endif
 
@@ -25,7 +25,6 @@
                 id="{{ $getId() }}"
                 name="{{ $getFilterName() }}"
                 x-on:change="handleFormFilterSubmit($event, {{ $tableName }})"
-                {!! $isAutofocused() ? 'autofocus' : null !!}
                 {{ $attributes->merge($getExtraInputAttributes())->merge($getExtraAttributes())->class([
                     'text-gray-900 block w-full transition duration-75 rounded-lg shadow-sm focus:border-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600 disabled:opacity-70 border-gray-300',
                     'dark:bg-gray-700 dark:text-white dark:border-gray-600' => config('tables.dark_mode'),
@@ -46,9 +45,9 @@
             </select>
         </div>
 
-        @if ($label = $getPostfixLabel())
+        @if ($suffix = $getSuffixLabel())
             <span @class($sideLabelClasses)>
-                {{ $label }}
+                {{ $suffix }}
             </span>
         @endif
     </div>
