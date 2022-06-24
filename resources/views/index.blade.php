@@ -106,6 +106,7 @@
                             :sortable="$column->isSortable()"
                             :sort-direction="$column->isSortable() ? $column->getSortDirection() : null"
                             :sort-url="$column->isSortable() ? $column->getSortUrl() : null"
+                            :alignment="$column->getAlignment()"
                         >
                             {{ $column->getLabel() }}
                         </x-tables::table.th>
