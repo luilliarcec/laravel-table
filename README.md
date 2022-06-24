@@ -435,6 +435,157 @@ Columns\IconColumn::make('is_featured')
     ])
 ```
 
+### Badge column
+
+Badge columns render a colored badge with the cell's contents. You may use the same formatting methods as
+for [text columns](#text-column):
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BadgeColumn::make('status')
+    ->enum([
+        'draft' => 'Draft',
+        'reviewing' => 'Reviewing',
+        'published' => 'Published',
+    ])
+```
+
+Badges may have a color. It may be either `primary`, `success`, `warning` or `danger`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BadgeColumn::make('status')
+    ->colors([
+        'primary',
+        'danger' => 'draft',
+        'warning' => 'reviewing',
+        'success' => 'published',
+    ])
+```
+
+You may instead activate a color using a callback, accepting the cell's `$state`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BadgeColumn::make('status')
+    ->colors([
+        'primary',
+        'danger' => fn ($state): bool => $state === 'draft',
+        'warning' => fn ($state): bool => $state === 'reviewing',
+        'success' => fn ($state): bool => $state === 'published',
+    ])
+```
+
+Badges may also have an icon:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BadgeColumn::make('status')
+    ->icons([
+        'heroicon-o-x',
+        'heroicon-o-document' => 'draft',
+        'heroicon-o-refresh' => 'reviewing',
+        'heroicon-o-truck' => 'published',
+    ])
+```
+
+Alternatively, you may conditionally display an icon using a closure:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BadgeColumn::make('status')
+    ->icons([
+        'heroicon-o-x',
+        'heroicon-o-document' => fn ($state): bool => $state === 'draft',
+        'heroicon-o-refresh' => fn ($state): bool => $state === 'reviewing',
+        'heroicon-o-truck' => fn ($state): bool => $state === 'published',
+    ])
+```
+
+You may set the position of an icon using `iconPosition()`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BadgeColumn::make('status')
+    ->icons([
+        'heroicon-o-x',
+        'heroicon-o-document' => 'draft',
+        'heroicon-o-refresh' => 'reviewing',
+        'heroicon-o-truck' => 'published',
+    ])
+    ->iconPosition('after') // `before` or `after`
+```
+
+### Tags column
+
+Tags columns render a list of tags from an array:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TagsColumn::make('tags')
+```
+
+Be sure to add an `array` [cast](https://laravel.com/docs/eloquent-mutators#array-and-json-casting) to the model
+property.
+
+Instead of using an array, you may use a separated string by passing the separator into `separator()`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TagsColumn::make('tags')->separator(',')
+```
+
+### View column
+
+You may render a custom view for a cell using the `view()` method:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\ViewColumn::make('status')->view('columns.custom-view')
+```
+
+Inside your view, you may retrieve the state of the cell using the `$getState()` method:
+
+```blade
+<div>
+    {{ $getState() }}
+</div>
+```
+
+### Building custom columns
+
+You may create your own custom column classes and cell views, which you can reuse across your project, and even release
+as a plugin to the community.
+
+> If you're just creating a simple custom column to use once, you could instead use a [view column](#view-column) to
+> render any custom Blade file.
+
+```php
+use Luilliarcec\LaravelTable\Columns\Column;
+
+class StatusSwitcher extends Column
+{
+    protected string $view = 'columns.custom-column';
+}
+```
+
+Inside your view, you may retrieve the state of the cell using the `$getState()` method:
+
+```blade
+<div>
+    {{ $getState() }}
+</div>
+```
+
 ## Examples
 
 To visualize the operation of the package together
