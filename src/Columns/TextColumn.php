@@ -6,6 +6,8 @@ use Closure;
 
 class TextColumn extends Column
 {
+    use Concerns\CanFormatState;
+
     protected string $view = 'tables::columns.text';
     protected bool|Closure $canWrap = false;
 
