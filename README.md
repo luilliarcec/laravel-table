@@ -295,6 +295,98 @@ use Luilliarcec\LaravelTable\Columns;
 Columns\TextColumn::make('description')->wrap()
 ```
 
+### Boolean column
+
+Boolean columns render a check or cross icon representing their state:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BooleanColumn::make('is_featured')
+```
+
+You may customize the icon representing each state. Icons are the name of a Blade component present. By
+default, [Heroicons](https://heroicons.com) are installed:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BooleanColumn::make('is_featured')
+    ->trueValue('heroicon-o-badge-check')
+    ->falseValue('heroicon-o-x-circle')
+
+Columns\BooleanColumn::make('is_featured')
+    ->trueValue('Yes')
+    ->falseValue('No')
+```
+
+You may customize the icon color representing each state. These may be either `primary`, `secondary`, `success`
+, `warning` or `danger`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\BooleanColumn::make('is_featured')
+    ->trueColor('primary')
+    ->falseColor('warning')
+```
+
+### Image column
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\ImageColumn::make('header_image')
+```
+
+You may make the image fully `rounded()`, which is useful for rendering avatars:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\ImageColumn::make('author.avatar')->rounded()
+```
+
+You may customize the image size by passing a `width()` and `height()`, or both with `size()`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\ImageColumn::make('header_image')->width(200)
+Columns\ImageColumn::make('header_image')->height(50)
+Columns\ImageColumn::make('author.avatar')->size(40)
+```
+
+By default, the `public` disk will be used to retrieve images. You may pass a custom disk name to the `disk()` method:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\ImageColumn::make('header_image')->disk('s3')
+```
+
+#### Private images
+
+Filament can generate temporary URLs to render private images, you may set the `visibility()` to `private`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\ImageColumn::make('header_image')->visibility('private')
+```
+
+You may customize the extra HTML attributes of the image using `extraImgAttributes()`:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\ImageColumn::make('logo')
+    ->extraImgAttributes(['title' => 'Company logo']),
+```
+
+
+
+
 ## Examples
 
 To visualize the operation of the package together
