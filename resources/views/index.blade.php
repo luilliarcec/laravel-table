@@ -112,6 +112,30 @@
                             {{ $column->getLabel() }}
                         </x-tables::table.th>
                     @endforeach
+
+                    @foreach($records as $record)
+                        <x-tables::table.row>
+                            @foreach ($columns as $column)
+{{--                                @php--}}
+{{--                                    $column->record($record);--}}
+{{--                                @endphp--}}
+
+                                <x-tables::table.td
+                                    :name="$column->getName()"
+                                    :alignment="$column->getAlignment()"
+                                    {{--:record="$record"--}}
+                                    {{--:tooltip="$column->getTooltip()"--}}
+                                    {{--:record-action="$getRecordAction()"--}}
+                                    {{--:record-url="$getRecordUrl($record)"--}}
+                                    {{--:should-open-url-in-new-tab="$column->shouldOpenUrlInNewTab()"--}}
+                                    {{--:url="$column->getUrl()"--}}
+                                    :class="$getHiddenClasses($column)"
+                                >
+                                    {{ $column }}
+                                </x-tables::table.td>
+                            @endforeach
+                        </x-tables::table.row>
+                    @endforeach
                 </x-slot:header>
             </x-tables::table>
         @else
