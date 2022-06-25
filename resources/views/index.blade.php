@@ -116,40 +116,37 @@
                         >
                             {{ $column->getLabel() }}
                         </x-tables::table.th>
+                    @endforeach
+
+                    @if (count($actions))
+                        <th class="w-5"></th>
+                    @endif
+                </x-slot:header>
+
+                @foreach($records as $record)
+                    <x-tables::table.row>
+                        @foreach ($columns as $column)
+                            @php
+                                $column->record($record);
+                            @endphp
+
+                            <x-tables::table.td
+                                :name="$column->getName()"
+                                :alignment="$column->getAlignment()"
+                                :tooltip="$column->getTooltip()"
+                                :should-open-url-in-new-tab="$column->shouldOpenUrlInNewTab()"
+                                :url="$column->getUrl()"
+                                :class="$getHiddenClasses($column)"
+                            >
+                                {{ $column }}
+                            </x-tables::table.td>
+                        @endforeach
 
                         @if (count($actions))
-                            <th class="w-5"></th>
+                            <x-tables::table.td.actions :actions="$actions" :record="$record"/>
                         @endif
-                    @endforeach
-
-                    @foreach($records as $record)
-                        <x-tables::table.row>
-                            @foreach ($columns as $column)
-                                @php
-                                    $column->record($record);
-                                @endphp
-
-                                <x-tables::table.td
-                                    :name="$column->getName()"
-                                    :alignment="$column->getAlignment()"
-                                    :tooltip="$column->getTooltip()"
-                                    {{--:record="$record"--}}
-                                    {{--:record-action="$getRecordAction()"--}}
-                                    {{--:record-url="$getRecordUrl($record)"--}}
-                                    :should-open-url-in-new-tab="$column->shouldOpenUrlInNewTab()"
-                                    :url="$column->getUrl()"
-                                    :class="$getHiddenClasses($column)"
-                                >
-                                    {{ $column }}
-                                </x-tables::table.td>
-                            @endforeach
-
-                            @if (count($actions))
-                                <x-tables::table.td.actions :actions="$actions" :record="$record"/>
-                            @endif
-                        </x-tables::table.row>
-                    @endforeach
-                </x-slot:header>
+                    </x-tables::table.row>
+                @endforeach
             </x-tables::table>
         @else
             <x-tables::table.empty :icon="$getEmptyStateIcon()" :actions="$getEmptyStateActions()">
