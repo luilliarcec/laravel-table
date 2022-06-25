@@ -94,7 +94,7 @@
 
     <div
         @class([
-            'overflow-x-auto overflow-y-hidden relative',
+            'overflow-y-auto relative',
             'dark:border-gray-700' => config('tables.dark_mode'),
             'rounded-t-xl' => ! $isHeaderVisible,
             'rounded-b-xl' => ! $hasPagination,
