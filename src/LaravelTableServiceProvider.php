@@ -13,6 +13,7 @@ class LaravelTableServiceProvider extends PackageServiceProvider
             ->name('tables')
             ->hasConfigFile('tables')
             ->hasTranslations()
+            ->hasAssets()
             ->hasViews('tables');
     }
 }
