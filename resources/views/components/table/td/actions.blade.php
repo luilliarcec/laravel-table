@@ -3,7 +3,7 @@
     'record',
 ])
 
-<td {{ $attributes->class(['px-4 py-3 whitespace-nowrap blade-tables-actions-cell']) }}>
+<td {{ $attributes->class(['px-4 py-3 whitespace-nowrap']) }}>
     <div {{ $attributes->class([
         'flex items-center gap-4',
         match (config('tables.layout.action_alignment')) {
