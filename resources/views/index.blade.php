@@ -7,6 +7,9 @@
     /**  @var \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\Paginator $records */
     $records = $getRecords();
 
+    /** @var array|\Luilliarcec\Components\Actions\Action[] $actions */
+    $actions = $getActions();
+
     $hasPagination = $isPaginationEnabled();
 
     $hasFilters = $isFilterable();
@@ -113,6 +116,10 @@
                         >
                             {{ $column->getLabel() }}
                         </x-tables::table.th>
+
+                        @if (count($actions))
+                            <th class="w-5"></th>
+                        @endif
                     @endforeach
 
                     @foreach($records as $record)
@@ -136,6 +143,10 @@
                                     {{ $column }}
                                 </x-tables::table.td>
                             @endforeach
+
+                            @if (count($actions))
+                                <x-tables::table.td.actions :actions="$actions" :record="$record"/>
+                            @endif
                         </x-tables::table.row>
                     @endforeach
                 </x-slot:header>
