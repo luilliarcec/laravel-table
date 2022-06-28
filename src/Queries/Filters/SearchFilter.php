@@ -4,7 +4,7 @@ namespace Luilliarcec\LaravelTable\Queries\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class InputSearchFilter extends Filters
+class SearchFilter extends Filters
 {
     public function __construct(private array $fields, bool $addRelationConstraint = true)
     {
