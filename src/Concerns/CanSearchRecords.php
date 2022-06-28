@@ -10,10 +10,10 @@ trait CanSearchRecords
 
     public function isTableSearchable(): bool
     {
-        return count($this->getColumnsSearchable()) > 0;
+        return count($this->getSearchableColumns()) > 0;
     }
 
-    public function getColumnsSearchable(): array
+    public function getSearchableColumns(): array
     {
         if (!$this->cachedSearchableColumns) {
             $this->cachedSearchableColumns = collect($this->getCachedTableColumns())
