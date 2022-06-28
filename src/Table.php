@@ -13,10 +13,10 @@ class Table extends Component implements Htmlable
     use Concerns\HasRecords;
     use Concerns\HasPagination;
     use Concerns\HasEmptyState;
-    use Concerns\HasInputSearch;
     use Concerns\HasFilters;
     use Concerns\HasColumns;
     use Concerns\HasActions;
+    use Concerns\CanSearchRecords;
 
     final public function __construct(string $name)
     {
