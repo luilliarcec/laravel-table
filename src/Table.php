@@ -17,6 +17,7 @@ class Table extends Component implements Htmlable
     use Concerns\HasColumns;
     use Concerns\HasActions;
     use Concerns\CanSearchRecords;
+    use Concerns\CanSortRecords;
 
     final public function __construct(string $name)
     {
