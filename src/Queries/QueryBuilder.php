@@ -24,8 +24,8 @@ abstract class QueryBuilder extends BaseQueryBuilder
             ->emptyStateActions($this->tableEmptyStateActions());
 
         $this
-            ->allowedSorts($this->table->getSortableColumns())
-            ->allowedFilters(AllowedFilter::custom('search', new SearchFilter($this->table->getSearchableColumns())));
+            ->allowedSorts($this->getAllowedSorts())
+            ->allowedFilters($this->getAllowedFilters());
     }
 
     public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): LengthAwarePaginator
@@ -65,4 +65,16 @@ abstract class QueryBuilder extends BaseQueryBuilder
     protected abstract function tableActions(): array;
 
     protected abstract function tableEmptyStateActions(): array;
+
+    protected function getAllowedSorts(): array
+    {
+        return $this->table->getSortableColumns();
+    }
+
+    protected function getAllowedFilters(): array
+    {
+        return [
+            AllowedFilter::custom('search', new SearchFilter($this->table->getSearchableColumns())),
+        ];
+    }
 }
