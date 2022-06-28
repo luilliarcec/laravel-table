@@ -33,6 +33,16 @@ use Luilliarcec\LaravelTable\Columns;
 Columns\TextColumn::make('title')->sortable()
 ```
 
+### Searching
+Columns may be searchable, by using the text input in the top right of the table. To make a column searchable, you must
+use the `searchable()` method:
+
+```php
+use Luilliarcec\LaravelTable\Columns;
+
+Columns\TextColumn::make('title')->searchable()
+```
+
 ### Opening URLs
 
 To open a URL, you may use the `url()` method, passing a callback or static URL to open. Callbacks accept a `$record`
