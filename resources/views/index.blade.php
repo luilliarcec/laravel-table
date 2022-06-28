@@ -78,13 +78,13 @@
                                 </div>
                             @endif
 
-                            @if(!$hasInputSearch)
+                            @unless($hasInputSearch)
                                 <x-components::icon-button
                                     type="submit"
                                     icon="heroicon-o-search"
                                     :dark-mode="config('tables.dark_mode')"
                                 />
-                            @endif
+                            @endunless
 
                             @if ($hasFilters)
                                 <x-tables::filters
