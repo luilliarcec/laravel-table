@@ -7,7 +7,7 @@ use Luilliarcec\LaravelTable\Columns\Column;
 trait HasColumns
 {
     protected array $columns = [];
-    protected array $cachedTableColumns;
+    protected ?array $cachedTableColumns = null;
 
     public function columns(array $columns): static
     {

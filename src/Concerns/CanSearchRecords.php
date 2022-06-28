@@ -6,7 +6,7 @@ use Luilliarcec\LaravelTable\Columns\Column;
 
 trait CanSearchRecords
 {
-    protected array $cachedColumnsSearchable;
+    protected ?array $cachedColumnsSearchable = null;
 
     public function isTableSearchable(): bool
     {
