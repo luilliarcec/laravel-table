@@ -46,11 +46,3 @@ use Luilliarcec\LaravelTable\Table;
 
 Table::make('users')->filters([/* ... */])
 ```
-
-If you want to add a global `search input` for your table.
-
-```php
-use Luilliarcec\LaravelTable\Table;
-
-Table::make('users')->searchable()
-```
