@@ -13,7 +13,7 @@
     $hasPagination = $isPaginationEnabled();
 
     $hasFilters = $isFilterable();
-    $hasInputSearch = $isSearchable();
+    $hasInputSearch = $isTableSearchable();
 
     $header = $getHeader();
     $heading = $getHeading();
