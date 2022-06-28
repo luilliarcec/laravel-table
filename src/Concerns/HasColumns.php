@@ -23,8 +23,12 @@ trait HasColumns
 
     public function getCachedTableColumns(): array
     {
-        return $this->cachedTableColumns ?: collect($this->getColumns())
-            ->filter(fn(Column $column): bool => !$column->isHidden())
-            ->toArray();
+        if (!$this->cachedTableColumns) {
+            $this->cachedTableColumns = collect($this->getColumns())
+                ->filter(fn(Column $column): bool => !$column->isHidden())
+                ->toArray();
+        }
+
+        return $this->cachedTableColumns;
     }
 }

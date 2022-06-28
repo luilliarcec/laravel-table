@@ -15,9 +15,13 @@ trait CanSearchRecords
 
     public function getColumnsSearchable(): array
     {
-        return $this->cachedColumnsSearchable ?: collect($this->getCachedTableColumns())
-            ->filter(fn(Column $column) => $column->isSearchable())
-            ->map(fn(Column $column) => $column->getName())
-            ->toArray();
+        if (!$this->cachedColumnsSearchable) {
+            $this->cachedColumnsSearchable = collect($this->getCachedTableColumns())
+                ->filter(fn(Column $column) => $column->isSearchable())
+                ->map(fn(Column $column) => $column->getName())
+                ->toArray();
+        }
+
+        return $this->cachedColumnsSearchable;
     }
 }
