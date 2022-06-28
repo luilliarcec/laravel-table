@@ -17,6 +17,7 @@ class Column extends Component implements Htmlable
     use Concerns\HasExtraHeaderAttributes;
     use Concerns\HasRelationships;
     use Concerns\CanBeSortable;
+    use Concerns\CanBeSearchable;
     use Concerns\CanBeHidden;
     use Concerns\CanOpenUrl;
     use Concerns\HasView;
