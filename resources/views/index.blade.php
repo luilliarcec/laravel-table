@@ -111,7 +111,7 @@
     >
         @if ($records->count())
             <x-tables::table>
-                <x-slot:header>
+                <x-slot name="header">
                     @foreach($columns as $column)
                         <x-tables::table.th
                             :name="$column->getName()"
@@ -129,7 +129,7 @@
                     @if (count($actions))
                         <th class="w-5"></th>
                     @endif
-                </x-slot:header>
+                </x-slot>
 
                 @foreach($records as $record)
                     <x-tables::table.row>
@@ -158,13 +158,13 @@
             </x-tables::table>
         @else
             <x-tables::table.empty :icon="$getEmptyStateIcon()" :actions="$getEmptyStateActions()">
-                <x-slot:heading>
+                <x-slot name="heading">
                     {{ $getEmptyStateHeading() }}
-                </x-slot:heading>
+                </x-slot>
 
-                <x-slot:description>
+                <x-slot name="description">
                     {{ $getEmptyStateDescription() }}
-                </x-slot:description>
+                </x-slot>
             </x-tables::table.empty>
         @endif
     </div>
