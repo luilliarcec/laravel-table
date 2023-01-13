@@ -18,7 +18,7 @@
     $header = $getHeader();
     $heading = $getHeading();
     $headerActions = $getHeaderActions();
-    $isHeaderVisible = ($header || $heading || $headerActions || $hasFilters);
+    $isHeaderVisible = ($header || $heading || $headerActions || $hasFilters || $hasInputSearch);
 
     $getHiddenClasses = function (\Luilliarcec\LaravelTable\Columns\Column $column): ?string {
         if ($breakpoint = $column->getHiddenFrom()) {
